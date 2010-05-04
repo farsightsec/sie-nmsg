@@ -1,0 +1,20 @@
+package nmsg.sie;
+
+enum DnsDedupeType {
+    INSERTION = 0;
+    EXPIRATION = 1;
+    CHAFF = 2;
+}
+
+message DnsDedupe {
+    required DnsDedupeType  type = 13;
+    optional uint32         count = 10;
+    optional uint32         time_first = 11;
+    optional uint32         time_last = 12;
+
+    optional bytes          rrname = 1;
+    optional uint32         rrtype = 2;
+    optional uint32         rrclass = 3;
+    optional uint32         rrttl = 4;
+    repeated bytes          rdata = 5;
+}
