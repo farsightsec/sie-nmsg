@@ -11,6 +11,7 @@ message DnsDedupe {
     optional uint32         count = 10;
     optional uint32         time_first = 11;
     optional uint32         time_last = 12;
+    optional bytes          response_ip = 14;
 
     optional bytes          rrname = 1;
     optional uint32         rrtype = 2;

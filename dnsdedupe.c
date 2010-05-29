@@ -55,6 +55,10 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 		.print = time_print
 	},
 	{
+		.type = nmsg_msgmod_ft_ip,
+		.name = "response_ip",
+	},
+	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rrname",
 		.print = dns_name_print
