@@ -4,6 +4,7 @@ enum DnsDedupeType {
     INSERTION = 0;
     EXPIRATION = 1;
     CHAFF = 2;
+    AUTHORITATIVE = 3;
 }
 
 message DnsDedupe {
