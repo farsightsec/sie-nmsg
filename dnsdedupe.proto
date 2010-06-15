@@ -18,4 +18,6 @@ message DnsDedupe {
     optional uint32         rrclass = 3;
     optional uint32         rrttl = 4;
     repeated bytes          rdata = 5;
+
+    optional bytes          response = 15;
 }

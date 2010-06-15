@@ -31,6 +31,7 @@ static NMSG_MSGMOD_FIELD_PRINTER(dns_name_print);
 static NMSG_MSGMOD_FIELD_PRINTER(dns_type_print);
 static NMSG_MSGMOD_FIELD_PRINTER(dns_class_print);
 static NMSG_MSGMOD_FIELD_PRINTER(dns_rdata_print);
+static NMSG_MSGMOD_FIELD_PRINTER(dns_message_print);
 static NMSG_MSGMOD_FIELD_PRINTER(time_print);
 
 /* Data. */
@@ -82,6 +83,11 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 		.name = "rdata",
 		.flags = NMSG_MSGMOD_FIELD_REPEATED,
 		.print = dns_rdata_print
+	},
+	{
+		.type = nmsg_msgmod_ft_bytes,
+		.name = "response",
+		.print = dns_message_print
 	},
 	NMSG_MSGMOD_FIELD_END
 };
@@ -229,4 +235,39 @@ parse_error:
 	free(buf);
 	nmsg_strbuf_append(sb, "rdata: ### PARSE ERROR #%u ###\n", status);
 	return (nmsg_res_parse_error);
+}
+
+static nmsg_res
+dns_message_print(nmsg_message_t msg,
+		  struct nmsg_msgmod_field *field,
+		  void *ptr,
+		  struct nmsg_strbuf *sb,
+		  const char *endline)
+{
+	nmsg_res res;
+	uint8_t *payload;
+	size_t payload_len;
+
+	res = nmsg_message_get_field(msg, field->name, 0, (void **) &payload, &payload_len);
+	if (res == nmsg_res_success) {
+		wdns_message_t dns;
+		wdns_msg_status status;
+
+		status = wdns_parse_message(&dns, payload, payload_len);
+		if (status == wdns_msg_success) {
+			char *s;
+
+			s = wdns_message_to_str(&dns);
+			if (s != NULL) {
+				nmsg_strbuf_append(sb, "%s: [%zd octets]%s%s---%s",
+						   field->name, payload_len, endline, s, endline);
+				free(s);
+				wdns_clear_message(&dns);
+				return (nmsg_res_success);
+			}
+			wdns_clear_message(&dns);
+		}
+	}
+	nmsg_strbuf_append(sb, "%s: <PARSE ERROR>%s", field->name, endline);
+	return (nmsg_res_success);
 }
