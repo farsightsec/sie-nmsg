@@ -7,7 +7,7 @@ enum DnsDedupeType {
 }
 
 message DnsDedupe {
-    required DnsDedupeType  type = 13;
+    optional DnsDedupeType  type = 13;
     optional uint32         count = 10;
     optional uint32         time_first = 11;
     optional uint32         time_last = 12;
