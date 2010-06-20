@@ -56,6 +56,16 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 		.print = time_print
 	},
 	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "zone_time_first",
+		.print = time_print
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "zone_time_last",
+		.print = time_print
+	},
+	{
 		.type = nmsg_msgmod_ft_ip,
 		.name = "response_ip",
 	},
