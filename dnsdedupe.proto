@@ -21,4 +21,6 @@ message DnsDedupe {
     repeated bytes          rdata = 5;
 
     optional bytes          response = 15;
+
+    optional bytes          bailiwick = 16;
 }

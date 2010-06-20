@@ -61,6 +61,11 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
+		.name = "bailiwick",
+		.print = dns_name_print
+	},
+	{
+		.type = nmsg_msgmod_ft_bytes,
 		.name = "rrname",
 		.print = dns_name_print
 	},
