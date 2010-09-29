@@ -24,15 +24,15 @@ EXTRA_DIST = \
 # NOTE: if the nmsg msgmod version (nmsg_msgX) changes, it must be
 # updated both here and in check_libnmsg.m4.
 
-module_LTLIBRARIES = nmsg_msg7_sie.la
+module_LTLIBRARIES = nmsg_msg8_sie.la
 
-nmsg_msg7_sie_la_CFLAGS = \
+nmsg_msg8_sie_la_CFLAGS = \
 	@libnmsg_cflags@
-nmsg_msg7_sie_la_LDFLAGS = \
+nmsg_msg8_sie_la_LDFLAGS = \
 	$(MSG_LIBTOOL_FLAGS) \
 	@libnmsg_ldflags@
-nmsg_msg7_sie_la_LIBADD = -lwdns
-nmsg_msg7_sie_la_SOURCES = nmsg_msg_sie.c
+nmsg_msg8_sie_la_LIBADD = -lwdns
+nmsg_msg8_sie_la_SOURCES = nmsg_msg_sie.c
 
 dep: dnsdedupe.pb-c.c
 
