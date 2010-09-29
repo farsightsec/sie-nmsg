@@ -110,7 +110,7 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 /* Export. */
 
 struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
-	.msgver		= NMSG_MSGMOD_VERSION,
+	NMSG_MSGMOD_REQUIRED_INIT,
 	.vendor		= NMSG_VENDOR_SIE,
 	.msgtype	= { MSGTYPE_SIE_DNSDEDUPE_ID, MSGTYPE_SIE_DNSDEDUPE_NAME },
 
