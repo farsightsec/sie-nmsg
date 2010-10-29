@@ -1,5 +1,5 @@
 AC_PREREQ(2.60)
-AC_INIT([sie-nmsg], [0.4])
+AC_INIT([sie-nmsg], [0.5])
 AM_INIT_AUTOMAKE([1.10 foreign])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
