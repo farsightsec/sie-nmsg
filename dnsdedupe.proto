@@ -7,6 +7,7 @@ enum DnsDedupeType {
     AUTHORITATIVE = 3;
     MERGED = 4;
     MERGED_AUTHORITATIVE = 5;
+    MERGED_INSERTION = 6;
 }
 
 message DnsDedupe {
