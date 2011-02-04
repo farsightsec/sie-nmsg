@@ -13,6 +13,7 @@ moduledir = $(libdir)/nmsg
 nmsgsieincludedir = $(includedir)/nmsg/sie
 
 nobase_nmsgsieinclude_HEADERS = \
+	defs.h \
 	dnsdedupe.pb-c.h
 
 EXTRA_DIST = \
