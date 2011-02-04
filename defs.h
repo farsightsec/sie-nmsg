@@ -4,4 +4,7 @@
 #define NMSG_VENDOR_SIE_DNSDEDUPE_ID	1
 #define NMSG_VENDOR_SIE_DNSDEDUPE_NAME	"dnsdedupe"
 
+#define NMSG_VENDOR_SIE_QR_ID		3
+#define NMSG_VENDOR_SIE_QR_NAME		"qr"
+
 #endif /* NMSG_SIE_DEFS_H */

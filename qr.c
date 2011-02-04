@@ -1,7 +1,7 @@
-/* nmsg_msg_sie.c - SIE nmsg_msg modules */
+/* SIE query-response nmsg message module */
 
 /*
- * Copyright (c) 2010 by Internet Systems Consortium, Inc. ("ISC")
+ * Copyright (c) 2011 by Internet Systems Consortium, Inc. ("ISC")
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -16,28 +16,42 @@
  * OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-
 /* Import. */
 
-#include <stdlib.h>
+#include <time.h>
 
-#include <nmsg.h>
-#include <nmsg/msgmod_plugin.h>
+#include "defs.h"
+#include "qr.pb-c.c"
 
-#include <wdns.h>
+/* Data. */
 
-#define nmsg_msgmod_ctx nmsg_msgmod_ctx_dnsdedupe
-#include "dnsdedupe.c"
-#undef nmsg_msgmod_ctx
-
-#define nmsg_msgmod_ctx nmsg_msgmod_ctx_qr
-#include "qr.c"
-#undef nmsg_msgmod_ctx
+struct nmsg_msgmod_field qr_fields[] = {
+	{
+		.type = nmsg_msgmod_ft_enum,
+		.name = "type"
+	},
+	{
+		.type = nmsg_msgmod_ft_string,
+		.name = "text"
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "num_response"
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "more_available"
+	},
+	NMSG_MSGMOD_FIELD_END
+};
 
 /* Export. */
 
-struct nmsg_msgmod_plugin *nmsg_msgmod_ctx_array[] = {
-	&nmsg_msgmod_ctx_dnsdedupe,
-	&nmsg_msgmod_ctx_qr,
-	NULL
+struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
+	NMSG_MSGMOD_REQUIRED_INIT,
+	.vendor		= NMSG_VENDOR_SIE,
+	.msgtype	= { NMSG_VENDOR_SIE_QR_ID, NMSG_VENDOR_SIE_QR_NAME },
+
+	.pbdescr	= &nmsg__sie__qr__descriptor,
+	.fields		= qr_fields 
 };

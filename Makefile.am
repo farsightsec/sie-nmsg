@@ -14,13 +14,18 @@ nmsgsieincludedir = $(includedir)/nmsg/sie
 
 nobase_nmsgsieinclude_HEADERS = \
 	defs.h \
-	dnsdedupe.pb-c.h
+	dnsdedupe.pb-c.h \
+	qr.pb-c.h
 
 EXTRA_DIST = \
 	dnsdedupe.c \
 	dnsdedupe.pb-c.c \
 	dnsdedupe.pb-c.h \
-	dnsdedupe.proto
+	dnsdedupe.proto \
+	qr.c \
+	qr.pb-c.c \
+	qr.pb-c.h \
+	qr.proto
 
 # NOTE: if the nmsg msgmod version (nmsg_msgX) changes, it must be
 # updated both here and in check_libnmsg.m4.
@@ -35,6 +40,6 @@ nmsg_msg8_sie_la_LDFLAGS = \
 nmsg_msg8_sie_la_LIBADD = -lwdns
 nmsg_msg8_sie_la_SOURCES = nmsg_msg_sie.c
 
-dep: dnsdedupe.pb-c.c
+dep: dnsdedupe.pb-c.c qr.pb-c.c
 
 .PHONY: dep

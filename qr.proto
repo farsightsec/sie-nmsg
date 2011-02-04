@@ -1,0 +1,15 @@
+package nmsg.sie;
+
+enum QRType {
+    QUERY = 0;
+    RESPONSE = 1;
+    RESPONSE_END = 2;
+    ERROR = 3;
+}
+
+message QR {
+    required QRType         type = 1;
+    optional bytes          text = 2;
+    optional uint32         num_response = 3;
+    optional uint32         more_available = 4;
+}
