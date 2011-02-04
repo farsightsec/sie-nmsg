@@ -16,13 +16,11 @@
  * OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#define MSGTYPE_SIE_DNSDEDUPE_ID	1
-#define MSGTYPE_SIE_DNSDEDUPE_NAME	"dnsdedupe"
-
 /* Import. */
 
 #include <time.h>
 
+#include "defs.h"
 #include "dnsdedupe.pb-c.c"
 
 /* Exported via module context. */
@@ -112,7 +110,7 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
 	NMSG_MSGMOD_REQUIRED_INIT,
 	.vendor		= NMSG_VENDOR_SIE,
-	.msgtype	= { MSGTYPE_SIE_DNSDEDUPE_ID, MSGTYPE_SIE_DNSDEDUPE_NAME },
+	.msgtype	= { NMSG_VENDOR_SIE_DNSDEDUPE_ID, NMSG_VENDOR_SIE_DNSDEDUPE_NAME },
 
 	.pbdescr	= &nmsg__sie__dns_dedupe__descriptor,
 	.fields		= dnsdedupe_fields 
