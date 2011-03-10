@@ -18,6 +18,7 @@
 
 /* Import. */
 
+#include <string.h>
 #include <time.h>
 
 #include "defs.h"
@@ -175,15 +176,16 @@ dns_type_print(nmsg_message_t msg,
 	       struct nmsg_strbuf *sb,
 	       const char *endline)
 {
-	uint32_t *rrtype = ptr;
+	uint16_t rrtype;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
 
-	s = wdns_rrtype_to_str(*rrtype);
+	memcpy(&rrtype, ptr, sizeof(rrtype));
+	s = wdns_rrtype_to_str(rrtype);
 	res = nmsg_strbuf_append(sb, "%s: %s (%u)%s",
 				 field->name,
 				 s ? s : "<UNKNOWN>",
-				 *rrtype, endline);
+				 rrtype, endline);
 	return (res);
 }
 
@@ -194,15 +196,16 @@ dns_class_print(nmsg_message_t msg,
 		struct nmsg_strbuf *sb,
 		const char *endline)
 {
-	uint32_t *rrclass = ptr;
+	uint16_t rrclass;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
 
-	s = wdns_rrclass_to_str(*rrclass);
+	memcpy(&rrclass, ptr, sizeof(rrclass));
+	s = wdns_rrclass_to_str(rrclass);
 	res = nmsg_strbuf_append(sb, "%s: %s (%u)%s",
 				 field->name,
 				 s ? s : "<UNKNOWN>",
-				 *rrclass, endline);
+				 rrclass, endline);
 	return (res);
 }
 
