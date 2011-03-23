@@ -34,10 +34,15 @@
 #include "qr.c"
 #undef nmsg_msgmod_ctx
 
+#define nmsg_msgmod_ctx nmsg_msgmod_ctx_reputation
+#include "reputation.c"
+#undef nmsg_msgmod_ctx
+
 /* Export. */
 
 struct nmsg_msgmod_plugin *nmsg_msgmod_ctx_array[] = {
 	&nmsg_msgmod_ctx_dnsdedupe,
 	&nmsg_msgmod_ctx_qr,
+	&nmsg_msgmod_ctx_reputation,
 	NULL
 };

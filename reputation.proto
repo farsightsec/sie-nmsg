@@ -1,0 +1,21 @@
+package nmsg.sie;
+
+enum ReputationType {
+    ADDRESS = 0;
+    HOST = 1;
+    DOMAIN = 2;
+    NAMESERVER = 3;
+    URI = 4;
+}
+
+message Reputation {
+    required ReputationType type = 1;
+    required bytes          tag = 2;
+    optional bytes          value = 3;
+    optional bytes          address = 4;
+    optional bytes          netmask = 5;
+    optional bytes          host = 6;
+    optional bytes          domain = 7;
+    optional bytes          nameserver = 8;
+    optional bytes          uri = 9;
+}
