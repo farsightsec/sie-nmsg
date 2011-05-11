@@ -17,14 +17,14 @@ libnmsg_libadd=""
 
 AC_DEFUN([MYAC_CHECK_LIBNMSG],
     AC_LINK_IFELSE(
-        AC_LANG_PROGRAM(
+        [AC_LANG_PROGRAM(
             [[
             #include <nmsg.h>
             ]],
             [[
             nmsg_init();
             ]]
-        )
+        )]
         ,
         AC_MSG_RESULT([-lnmsg])
         AC_DEFINE([HAVE_NMSG], [1], [Define to 1 if libnmsg works.])
@@ -40,7 +40,7 @@ AC_DEFUN([MYAC_CHECK_LIBNMSG],
 AC_DEFUN([MYAC_CHECK_LIBNMSG_MSGMOD],
     AC_MSG_CHECKING([nmsg msgmod version])
     AC_RUN_IFELSE(
-        AC_LANG_PROGRAM(
+        [AC_LANG_PROGRAM(
             [[
             #include <nmsg/msgmod_plugin.h>
             ]],
@@ -50,7 +50,7 @@ AC_DEFUN([MYAC_CHECK_LIBNMSG_MSGMOD],
             else
                 return (1);
             ]]
-        )
+        )]
         ,
         AC_MSG_RESULT([8])
         ,
