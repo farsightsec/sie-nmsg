@@ -18,4 +18,5 @@ message Reputation {
     optional bytes          domain = 7;
     optional bytes          nameserver = 8;
     optional bytes          uri = 9;
+    optional uint32         port = 10;
 }

@@ -56,6 +56,10 @@ struct nmsg_msgmod_field reputation_fields[] = {
 		.type = nmsg_msgmod_ft_string,
 		.name = "uri"
 	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "port"
+	},
 	NMSG_MSGMOD_FIELD_END
 };
 
