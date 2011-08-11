@@ -10,4 +10,7 @@
 #define NMSG_VENDOR_SIE_QR_ID		3
 #define NMSG_VENDOR_SIE_QR_NAME		"qr"
 
+#define NMSG_VENDOR_SIE_DELAY_ID	4
+#define NMSG_VENDOR_SIE_DELAY_NAME	"delay"
+
 #endif /* NMSG_SIE_DEFS_H */

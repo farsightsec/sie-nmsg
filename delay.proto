@@ -1,0 +1,7 @@
+package nmsg.sie;
+
+message Delay {
+    required bytes          query_ip = 1;
+    required bytes          response_ip = 2;
+    required double         delay = 3;
+}

@@ -1,7 +1,7 @@
-/* nmsg_msg_sie.c - SIE nmsg_msg modules */
+/* SIE delay nmsg message module */
 
 /*
- * Copyright (c) 2010 by Internet Systems Consortium, Inc. ("ISC")
+ * Copyright (c) 2011 by Internet Systems Consortium, Inc. ("ISC")
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -16,38 +16,36 @@
  * OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-
 /* Import. */
 
-#include <stdlib.h>
+#include "defs.h"
+#include "delay.pb-c.c"
 
-#include <nmsg.h>
-#include <nmsg/msgmod_plugin.h>
+/* Data. */
 
-#include <wdns.h>
-
-#define nmsg_msgmod_ctx nmsg_msgmod_ctx_dnsdedupe
-#include "dnsdedupe.c"
-#undef nmsg_msgmod_ctx
-
-#define nmsg_msgmod_ctx nmsg_msgmod_ctx_qr
-#include "qr.c"
-#undef nmsg_msgmod_ctx
-
-#define nmsg_msgmod_ctx nmsg_msgmod_ctx_reputation
-#include "reputation.c"
-#undef nmsg_msgmod_ctx
-
-#define nmsg_msgmod_ctx nmsg_msgmod_ctx_delay
-#include "delay.c"
-#undef nmsg_msgmod_ctx
+struct nmsg_msgmod_field delay_fields[] = {
+	{
+		.type = nmsg_msgmod_ft_ip,
+		.name = "query_ip"
+	},
+	{
+		.type = nmsg_msgmod_ft_ip,
+		.name = "response_ip"
+	},
+	{
+		.type = nmsg_msgmod_ft_double,
+		.name = "delay"
+	},
+	NMSG_MSGMOD_FIELD_END
+};
 
 /* Export. */
 
-struct nmsg_msgmod_plugin *nmsg_msgmod_ctx_array[] = {
-	&nmsg_msgmod_ctx_dnsdedupe,
-	&nmsg_msgmod_ctx_qr,
-	&nmsg_msgmod_ctx_reputation,
-	&nmsg_msgmod_ctx_delay,
-	NULL
+struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
+	NMSG_MSGMOD_REQUIRED_INIT,
+	.vendor		= NMSG_VENDOR_SIE,
+	.msgtype	= { NMSG_VENDOR_SIE_DELAY_ID, NMSG_VENDOR_SIE_DELAY_NAME },
+
+	.pbdescr	= &nmsg__sie__delay__descriptor,
+	.fields		= delay_fields 
 };

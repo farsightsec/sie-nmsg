@@ -14,11 +14,16 @@ nmsgsieincludedir = $(includedir)/nmsg/sie
 
 nobase_nmsgsieinclude_HEADERS = \
 	defs.h \
+	delay.pb-c.h \
 	dnsdedupe.pb-c.h \
 	qr.pb-c.h \
 	reputation.pb-c.h
 
 EXTRA_DIST = \
+	delay.c \
+	delay.pb-c.c \
+	delay.pb-c.h \
+	delay.proto \
 	dnsdedupe.c \
 	dnsdedupe.pb-c.c \
 	dnsdedupe.pb-c.h \
@@ -45,6 +50,6 @@ nmsg_msg8_sie_la_LDFLAGS = \
 nmsg_msg8_sie_la_LIBADD = -lwdns
 nmsg_msg8_sie_la_SOURCES = nmsg_msg_sie.c
 
-dep: dnsdedupe.pb-c.c qr.pb-c.c reputation.pb-c.c
+dep: delay.pb-c.c dnsdedupe.pb-c.c qr.pb-c.c reputation.pb-c.c
 
 .PHONY: dep
