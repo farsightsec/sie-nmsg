@@ -18,8 +18,6 @@
 
 /* Import. */
 
-#include <time.h>
-
 #include "defs.h"
 #include "qr.pb-c.c"
 
