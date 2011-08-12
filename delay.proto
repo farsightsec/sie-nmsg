@@ -4,4 +4,5 @@ message Delay {
     required bytes          query_ip = 1;
     required bytes          response_ip = 2;
     required double         delay = 3;
+    required int64          response_time_sec = 4;
 }

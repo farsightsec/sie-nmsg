@@ -36,6 +36,10 @@ struct nmsg_msgmod_field delay_fields[] = {
 		.type = nmsg_msgmod_ft_double,
 		.name = "delay"
 	},
+	{
+		.type = nmsg_msgmod_ft_int64,
+		.name = "response_time_sec"
+	},
 	NMSG_MSGMOD_FIELD_END
 };
 
