@@ -37,6 +37,30 @@ AC_DEFUN([MYAC_CHECK_LIBNMSG],
         )
 )
 
+AC_DEFUN([MYAC_CHECK_LIBNMSG_MSGMOD_PLUGIN],
+    AC_MSG_CHECKING([nmsg msgmod plugin build dependencies])
+    AC_LINK_IFELSE(
+        [AC_LANG_PROGRAM(
+            [[
+            #include <nmsg.h>
+            #include <nmsg/msgmod_plugin.h>
+            ]],
+            [[
+            nmsg_init();
+            ]]
+        )]
+        ,
+        AC_MSG_RESULT([success])
+        AC_DEFINE([HAVE_NMSG_MSGMOD_PLUGIN], [1], [Define to 1 if libnmsg msgmod API works.])
+        ,
+        AC_MSG_FAILURE([libnmsg msgmod plugin API is non-functional. CHECK CONFIG.LOG])
+        libnmsg_cflags=""
+        libnmsg_libs=""
+        libnmsg_ldpath=""
+        libnmsg_libadd=""
+        )
+)
+
 AC_DEFUN([MYAC_CHECK_LIBNMSG_MSGMOD],
     AC_MSG_CHECKING([nmsg msgmod version])
     AC_RUN_IFELSE(
@@ -96,6 +120,7 @@ LDFLAGS="$LDFLAGS $libnmsg_ldpath"
 LIBS="$LIBS $libnmsg_libs"
 
 MYAC_CHECK_LIBNMSG
+MYAC_CHECK_LIBNMSG_MSGMOD_PLUGIN
 MYAC_CHECK_LIBNMSG_MSGMOD
 
 CFLAGS="$save_cflags"
