@@ -256,10 +256,10 @@ dns_message_print(nmsg_message_t msg,
 	res = nmsg_message_get_field(msg, field->name, 0, (void **) &payload, &payload_len);
 	if (res == nmsg_res_success) {
 		wdns_message_t dns;
-		wdns_msg_status status;
+		wdns_res wres;
 
-		status = wdns_parse_message(&dns, payload, payload_len);
-		if (status == wdns_msg_success) {
+		wres = wdns_parse_message(&dns, payload, payload_len);
+		if (wres == wdns_res_success) {
 			char *s;
 
 			s = wdns_message_to_str(&dns);
