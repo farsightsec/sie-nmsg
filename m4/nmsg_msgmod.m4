@@ -1,5 +1,7 @@
 AC_DEFUN([MY_CHECK_LIBNMSG_MSGMOD],
     [AC_MSG_CHECKING([nmsg msgmod version])
+    save_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS $libprotobuf_c_CFLAGS $libnmsg_CFLAGS"
     AC_RUN_IFELSE(
         [AC_LANG_PROGRAM(
             [[
@@ -16,5 +18,7 @@ AC_DEFUN([MY_CHECK_LIBNMSG_MSGMOD],
         AC_MSG_RESULT([8])
         ,
         AC_MSG_FAILURE([nmsg msgmod version mismatch])
-    )]
+    )
+    CFLAGS="$save_CFLAGS"
+    ]
 )
