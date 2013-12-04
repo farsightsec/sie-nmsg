@@ -10,11 +10,10 @@ AC_CONFIG_MACRO_DIR([m4])
 AM_SILENT_RULES([yes])
 LT_INIT
 
+AC_CONFIG_HEADER([config.h])
+AC_CONFIG_FILES([Makefile])
+
 PKG_PROG_PKG_CONFIG
-AC_PROG_CC
-AM_PROG_CC_C_O
-AC_PROG_INSTALL
-AC_PROG_LIBTOOL
 
 my_CFLAGS="-Wall \
 -Wmissing-declarations -Wmissing-prototypes \
@@ -24,11 +23,10 @@ my_CFLAGS="-Wall \
 -Wformat-security"
 AC_SUBST([my_CFLAGS])
 
-AC_CONFIG_HEADER([config.h])
-AC_CONFIG_FILES([Makefile])
-
+PKG_CHECK_MODULES([libnmsg], [libnmsg])
 PKG_CHECK_MODULES([libwdns], [libwdns])
 
-m4_sinclude(check_libnmsg.m4)
+MY_CHECK_LIBPROTOBUF_C
+MY_CHECK_LIBNMSG_MSGMOD
 
 AC_OUTPUT

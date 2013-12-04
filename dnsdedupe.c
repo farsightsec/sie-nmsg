@@ -22,7 +22,7 @@
 #include <time.h>
 
 #include "defs.h"
-#include "dnsdedupe.pb-c.c"
+#include "dnsdedupe.pb-c.h"
 
 /* Exported via module context. */
 

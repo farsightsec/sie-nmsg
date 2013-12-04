@@ -19,7 +19,7 @@
 /* Import. */
 
 #include "defs.h"
-#include "qr.pb-c.c"
+#include "qr.pb-c.h"
 
 /* Data. */
 

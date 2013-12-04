@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#include "reputation.pb-c.c"
+#include "reputation.pb-c.h"
 
 struct nmsg_msgmod_field reputation_fields[] = {
 	{

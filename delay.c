@@ -19,7 +19,7 @@
 /* Import. */
 
 #include "defs.h"
-#include "delay.pb-c.c"
+#include "delay.pb-c.h"
 
 /* Data. */
 
