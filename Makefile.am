@@ -7,6 +7,7 @@ AM_CPPFLAGS = \
 AM_CFLAGS = \
 	$(my_CFLAGS) \
 	$(libnmsg_CFLAGS) \
+	$(libprotobuf_c_CFLAGS) \
 	$(libwdns_CFLAGS)
 
 MSG_LIBTOOL_FLAGS = -module -avoid-version
