@@ -220,7 +220,6 @@ dns_rdata_print(nmsg_message_t msg,
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
-	size_t bufsz;
 
 	if (dns == NULL)
 		return (nmsg_res_failure);
@@ -234,12 +233,7 @@ dns_rdata_print(nmsg_message_t msg,
 
 	res = nmsg_strbuf_append(sb, "rdata: %s%s", buf, endline);
 	free(buf);
-	return (nmsg_res_success);
-
-parse_error:
-	free(buf);
-	nmsg_strbuf_append(sb, "rdata: ### PARSE ERROR ###\n");
-	return (nmsg_res_parse_error);
+	return (res);
 }
 
 static nmsg_res
