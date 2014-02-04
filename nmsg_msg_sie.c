@@ -41,6 +41,10 @@
 #include "delay.c"
 #undef nmsg_msgmod_ctx
 
+#define nmsg_msgmod_ctx nmsg_msgmod_ctx_newdomain
+#include "newdomain.c"
+#undef nmsg_msgmod_ctx
+
 /* Export. */
 
 struct nmsg_msgmod_plugin *nmsg_msgmod_ctx_array[] = {
@@ -48,5 +52,6 @@ struct nmsg_msgmod_plugin *nmsg_msgmod_ctx_array[] = {
 	&nmsg_msgmod_ctx_qr,
 	&nmsg_msgmod_ctx_reputation,
 	&nmsg_msgmod_ctx_delay,
+	&nmsg_msgmod_ctx_newdomain,
 	NULL
 };

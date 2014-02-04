@@ -1,0 +1,10 @@
+package nmsg.sie;
+
+message NewDomain {
+    optional bytes          domain = 1;
+    optional bytes          rrname = 2;
+    optional uint32         rrtype = 3;
+    optional uint32         rrclass = 4;
+
+    optional uint32         time_seen = 5;
+}
