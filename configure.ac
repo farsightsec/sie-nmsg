@@ -26,7 +26,10 @@ AC_SUBST([my_CFLAGS])
 PKG_CHECK_MODULES([libnmsg], [libnmsg])
 PKG_CHECK_MODULES([libwdns], [libwdns])
 
+m4_include([m4/protobuf-c.m4])
 MY_CHECK_LIBPROTOBUF_C
+
+m4_include([m4/nmsg_msgmod.m4])
 MY_CHECK_LIBNMSG_MSGMOD
 
 AC_OUTPUT
