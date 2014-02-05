@@ -1,7 +1,7 @@
 /* SIE DNS new domain message module */
 
 /*
- * Copyright (c) 2010-2012 by Farsight Security, Inc.
+ * Copyright (c) 2014 by Farsight Security, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,11 +28,6 @@
 
 struct nmsg_msgmod_field newdomain_fields[] = {
 	{
-		.type = nmsg_msgmod_ft_uint32,
-		.name = "time_seen",
-		.print = time_print
-	},
-	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "domain",
 		.print = dns_name_print
@@ -51,6 +46,11 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "rrtype",
 		.print = dns_type_print
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "time_seen",
+		.print = time_print
 	},
 	NMSG_MSGMOD_FIELD_END
 };
