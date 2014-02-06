@@ -30,7 +30,8 @@ nobase_nodist_nmsgsieinclude_HEADERS = \
 	delay.pb-c.h \
 	dnsdedupe.pb-c.h \
 	qr.pb-c.h \
-	reputation.pb-c.h
+	reputation.pb-c.h \
+	newdomain.pb-c.h
 
 # NOTE: if the nmsg msgmod version (nmsg_msgX) changes, it must be
 # updated both here and in check_libnmsg.m4.
@@ -48,7 +49,8 @@ nodist_nmsg_msg8_sie_la_SOURCES = \
 	delay.pb-c.c delay.pb-c.h \
 	dnsdedupe.pb-c.c dnsdedupe.pb-c.h \
 	qr.pb-c.c qr.pb-c.h \
-	reputation.pb-c.c reputation.pb-c.h
+	reputation.pb-c.c reputation.pb-c.h \
+	newdomain.pb-c.c newdomain.pb-c.h
 BUILT_SOURCES += $(nodist_nmsg_msg8_sie_la_SOURCES)
 CLEANFILES += $(nodist_nmsg_msg8_sie_la_SOURCES)
 EXTRA_DIST += \
@@ -59,4 +61,6 @@ EXTRA_DIST += \
 	qr.c \
 	qr.proto \
 	reputation.c \
-	reputation.proto
+	reputation.proto \
+	newdomain.c \
+	newdomain.proto

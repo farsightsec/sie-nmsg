@@ -13,4 +13,7 @@
 #define NMSG_VENDOR_SIE_DELAY_ID	4
 #define NMSG_VENDOR_SIE_DELAY_NAME	"delay"
 
+#define NMSG_VENDOR_SIE_NEWDOMAIN_ID	5
+#define NMSG_VENDOR_SIE_NEWDOMAIN_NAME	"newdomain"
+
 #endif /* NMSG_SIE_DEFS_H */
