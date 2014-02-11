@@ -33,6 +33,48 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 		.print = dns_name_print
 	},
 	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "time_seen",
+		.print = time_print
+	},
+	{
+		.type = nmsg_msgmod_ft_enum,
+		.name = "type"
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "count"
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "time_first",
+		.print = time_print
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "time_last",
+		.print = time_print
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "zone_time_first",
+		.print = time_print
+	},
+	{
+		.type = nmsg_msgmod_ft_uint32,
+		.name = "zone_time_last",
+		.print = time_print
+	},
+	{
+		.type = nmsg_msgmod_ft_ip,
+		.name = "response_ip",
+	},
+	{
+		.type = nmsg_msgmod_ft_bytes,
+		.name = "bailiwick",
+		.print = dns_name_print
+	},
+	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rrname",
 		.print = dns_name_print
@@ -49,8 +91,18 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
-		.name = "time_seen",
-		.print = time_print
+		.name = "rrttl",
+	},
+	{
+		.type = nmsg_msgmod_ft_bytes,
+		.name = "rdata",
+		.flags = NMSG_MSGMOD_FIELD_REPEATED,
+		.print = dns_rdata_print
+	},
+	{
+		.type = nmsg_msgmod_ft_bytes,
+		.name = "response",
+		.print = dns_message_print
 	},
 	NMSG_MSGMOD_FIELD_END
 };

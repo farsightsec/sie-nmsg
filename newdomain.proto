@@ -1,10 +1,26 @@
 package nmsg.sie;
 
+import "dnsdedupe.proto";
+
 message NewDomain {
     optional bytes          domain = 1;
-    optional bytes          rrname = 2;
-    optional uint32         rrtype = 3;
-    optional uint32         rrclass = 4;
+    optional uint32         time_seen = 2;
 
-    optional uint32         time_seen = 5;
+    optional DnsDedupeType  type = 13;
+    optional uint32         count = 10;
+    optional uint32         time_first = 11;
+    optional uint32         time_last = 12;
+    optional uint32         zone_time_first = 17;
+    optional uint32         zone_time_last = 18;
+    optional bytes          response_ip = 14;
+
+    optional bytes          rrname = 3;
+    optional uint32         rrtype = 4;
+    optional uint32         rrclass = 5;
+    optional uint32         rrttl = 6;
+    repeated bytes          rdata = 7;
+
+    optional bytes          response = 15;
+
+    optional bytes          bailiwick = 16;
 }
