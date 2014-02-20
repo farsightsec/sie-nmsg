@@ -24,10 +24,6 @@
 #include "defs.h"
 #include "newdomain.pb-c.h"
 
-/* Exported via module context. */
-
-static NMSG_MSGMOD_FIELD_PRINTER(nd_dns_rdata_print);
-
 /* Data. */
 
 struct nmsg_msgmod_field newdomain_fields[] = {
@@ -101,7 +97,7 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rdata",
 		.flags = NMSG_MSGMOD_FIELD_REPEATED,
-		.print = nd_dns_rdata_print
+		.print = dns_rdata_print
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
@@ -121,31 +117,4 @@ struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
 	.pbdescr	= &nmsg__sie__new_domain__descriptor,
 	.fields		= newdomain_fields 
 };
-
-static nmsg_res
-nd_dns_rdata_print(nmsg_message_t msg,
-		struct nmsg_msgmod_field *field __attribute__((unused)),
-		void *ptr,
-		struct nmsg_strbuf *sb,
-		const char *endline)
-{
-	Nmsg__Sie__NewDomain *dns = (Nmsg__Sie__NewDomain *) nmsg_message_get_payload(msg);
-	ProtobufCBinaryData *rdata = ptr;
-	nmsg_res res;
-	char *buf;
-
-	if (dns == NULL)
-		return (nmsg_res_failure);
-
-	if (dns->has_rrtype == false || dns->has_rrclass == false)
-		return (nmsg_res_failure);
-
-	buf = wdns_rdata_to_str(rdata->data, rdata->len, dns->rrtype, dns->rrclass);
-	if (buf == NULL)
-		return (nmsg_res_memfail);
-
-	res = nmsg_strbuf_append(sb, "rdata: %s%s", buf, endline);
-	free(buf);
-	return (res);
-}
 
