@@ -216,18 +216,29 @@ dns_rdata_print(nmsg_message_t msg,
 		struct nmsg_strbuf *sb,
 		const char *endline)
 {
-	Nmsg__Sie__DnsDedupe *dns = (Nmsg__Sie__DnsDedupe *) nmsg_message_get_payload(msg);
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
+	uint32_t *rrtype, *rrclass;
+	size_t len;
 
-	if (dns == NULL)
+	res = nmsg_message_get_field(msg, "rrtype", 0, (void**) &rrtype, &len);
+	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
-
-	if (dns->has_rrtype == false || dns->has_rrclass == false)
+	}
+	if (len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
+	}
 
-	buf = wdns_rdata_to_str(rdata->data, rdata->len, dns->rrtype, dns->rrclass);
+	res = nmsg_message_get_field(msg, "rrclass", 0, (void**) &rrclass, &len);
+	if (res != nmsg_res_success) {
+		return (nmsg_res_failure);
+	}
+	if (len != sizeof(uint32_t)) {
+		return (nmsg_res_failure);
+	}
+
+	buf = wdns_rdata_to_str(rdata->data, rdata->len, *rrtype, *rrclass);
 	if (buf == NULL)
 		return (nmsg_res_memfail);
 
