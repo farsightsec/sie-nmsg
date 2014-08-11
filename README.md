@@ -4,12 +4,9 @@ Farsight sie-nmsg
 This is sie-nmsg, a message module plugin for libnmsg implementing various
 message types used by Farsight Security's Security Information Exchange.
 
-Note that on Debian systems, binary packages of nmsg, sie-nmsg, and dependencies
-are available from a Debian package repository maintained by Farsight Security.
-See the following page for details:
-
-    https://archive.farsightsecurity.com/SIE_Software_Installation_Debian/
-
+Note that on Debian systems, binary packages of nmsg, sie-nmsg, and
+dependencies are available from
+[a Debian package repository maintained by Farsight Security](https://archive.farsightsecurity.com/SIE_Software_Installation_Debian/).
 These packages should be used in preference to building from source on
 Debian-based systems.
 
