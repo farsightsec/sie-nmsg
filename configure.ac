@@ -31,7 +31,6 @@ AC_PATH_PROG([PROTOC_C], [protoc-c])
 AS_IF([test -z "$PROTOC_C"],
       [AC_MSG_ERROR([The protoc-c program was not found. Please install the protobuf-c compiler!])])
 
-m4_include([m4/nmsg_msgmod.m4])
 MY_CHECK_LIBNMSG_MSGMOD
 
 AC_OUTPUT
