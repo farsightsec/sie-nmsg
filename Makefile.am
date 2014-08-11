@@ -36,23 +36,23 @@ nobase_nodist_nmsgsieinclude_HEADERS = \
 # NOTE: if the nmsg msgmod version (nmsg_msgX) changes, it must be
 # updated both here and in check_libnmsg.m4.
 
-module_LTLIBRARIES = nmsg_msg8_sie.la
+module_LTLIBRARIES = nmsg_msg9_sie.la
 
-nmsg_msg8_sie_la_LDFLAGS = \
+nmsg_msg9_sie_la_LDFLAGS = \
 	$(AM_LDFLAGS) \
 	$(MSG_LIBTOOL_FLAGS)
-nmsg_msg8_sie_la_LIBADD = \
+nmsg_msg9_sie_la_LIBADD = \
 	$(libnmsg_LIBS) \
 	$(libwdns_LIBS)
-nmsg_msg8_sie_la_SOURCES = nmsg_msg_sie.c
-nodist_nmsg_msg8_sie_la_SOURCES = \
+nmsg_msg9_sie_la_SOURCES = nmsg_msg_sie.c
+nodist_nmsg_msg9_sie_la_SOURCES = \
 	delay.pb-c.c delay.pb-c.h \
 	dnsdedupe.pb-c.c dnsdedupe.pb-c.h \
 	qr.pb-c.c qr.pb-c.h \
 	reputation.pb-c.c reputation.pb-c.h \
 	newdomain.pb-c.c newdomain.pb-c.h
-BUILT_SOURCES += $(nodist_nmsg_msg8_sie_la_SOURCES)
-CLEANFILES += $(nodist_nmsg_msg8_sie_la_SOURCES)
+BUILT_SOURCES += $(nodist_nmsg_msg9_sie_la_SOURCES)
+CLEANFILES += $(nodist_nmsg_msg9_sie_la_SOURCES)
 EXTRA_DIST += \
 	delay.c \
 	delay.proto \
