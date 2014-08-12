@@ -1,5 +1,5 @@
-sie-nmsg (0.16-2) debian-farsightsec; urgency=medium
+sie-nmsg (0.17.0-1) debian-farsightsec; urgency=medium
 
   * Current release.
 
- -- Robert Edmonds <edmonds@fsi.io>  Wed, 21 May 2014 18:09:22 -0400
+ -- Robert Edmonds <edmonds@fsi.io>  Tue, 12 Aug 2014 19:36:01 -0400
