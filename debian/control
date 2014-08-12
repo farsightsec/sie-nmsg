@@ -8,9 +8,9 @@ Build-Depends:
  dh-autoreconf (>= 5~),
  libnmsg-dev (>= 0.7.0~),
  libpcap0.8-dev,
- libprotobuf-c0-dev,
+ libprotobuf-c-dev (>= 1.0.1~),
  libwdns-dev (>= 0.6.0~),
- protobuf-c-compiler,
+ protobuf-c-compiler (>= 1.0.1~),
  pkg-config
 Standards-Version: 3.9.5
 
