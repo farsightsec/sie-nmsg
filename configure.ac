@@ -1,5 +1,5 @@
 AC_PREREQ(2.60)
-AC_INIT([sie-nmsg], [0.16])
+AC_INIT([sie-nmsg], [0.17.0])
 AC_CONFIG_SRCDIR([nmsg_msg_sie.c])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign 1.11 -Wall -Wno-portability silent-rules subdir-objects])
@@ -23,13 +23,14 @@ my_CFLAGS="-Wall \
 -Wformat-security"
 AC_SUBST([my_CFLAGS])
 
-PKG_CHECK_MODULES([libnmsg], [libnmsg])
+PKG_CHECK_MODULES([libnmsg], [libnmsg >= 0.9.0])
 PKG_CHECK_MODULES([libwdns], [libwdns])
 
-m4_include([m4/protobuf-c.m4])
-MY_CHECK_LIBPROTOBUF_C
+PKG_CHECK_MODULES([libprotobuf_c], [libprotobuf-c >= 1.0.1])
+AC_PATH_PROG([PROTOC_C], [protoc-c])
+AS_IF([test -z "$PROTOC_C"],
+      [AC_MSG_ERROR([The protoc-c program was not found. Please install the protobuf-c compiler!])])
 
-m4_include([m4/nmsg_msgmod.m4])
 MY_CHECK_LIBNMSG_MSGMOD
 
 AC_OUTPUT
