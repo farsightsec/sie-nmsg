@@ -14,7 +14,7 @@ Build-Depends:
  pkg-config
 Standards-Version: 3.9.5
 
-Package: nmsg-msg8-module-sie
+Package: nmsg-msg9-module-sie
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: SIE message module plugin for libnmsg
