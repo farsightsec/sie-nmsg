@@ -29,7 +29,8 @@ Description: SIE message module plugin for libnmsg
 
 Package: nmsg-msg-module-sie-dev
 Architecture: any
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
+ libprotobuf-c-dev
 Description: SIE message module headers for libnmsg
  This package extends the libnmsg vendor header files for the following
  message types:
