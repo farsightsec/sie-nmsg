@@ -1,3 +1,9 @@
+sie-nmsg (0.17.0-2) debian-farsightsec; urgency=medium
+
+  * nmsg-msg9-module-sie: provide the virtual package "nmsg-msg-module-sie".
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 25 Sep 2014 14:17:57 -0400
+
 sie-nmsg (0.17.0-1) debian-farsightsec; urgency=medium
 
   * Current release.
