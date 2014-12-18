@@ -14,6 +14,14 @@ Build-Depends:
  pkg-config
 Standards-Version: 3.9.5
 
+Package: nmsg-msg8-module-sie
+Architecture: all
+Breaks: libnmsg6 (<< 0.9.0)
+Depends: nmsg-msg-module-sie
+Description: Transitional dummy package for migration to nmsg-msg-module-sie
+ This dummy package is provided to support the transition to
+ nmsg-msg-module-sie. It can be safely removed.
+
 Package: nmsg-msg9-module-sie
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
