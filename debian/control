@@ -14,6 +14,15 @@ Build-Depends:
  pkg-config
 Standards-Version: 3.9.5
 
+Package: nmsg-msg-module-sie
+Architecture: all
+Depends: nmsg-msg9-module-sie
+Description: SIE message module plugin for libnmsg (meta package)
+ This meta package depends on the SIE message module package for the current
+ libnmsg message module ABI.
+ .
+ This package is required to support libnmsg message module ABI transitions.
+
 Package: nmsg-msg8-module-sie
 Architecture: all
 Breaks: libnmsg6 (<< 0.9.0)
@@ -25,7 +34,6 @@ Description: Transitional dummy package for migration to nmsg-msg-module-sie
 Package: nmsg-msg9-module-sie
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Provides: nmsg-msg-module-sie
 Description: SIE message module plugin for libnmsg
  This package extends the libnmsg runtime to support the following
  message types:
