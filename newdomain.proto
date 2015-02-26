@@ -23,4 +23,7 @@ message NewDomain {
     optional bytes          response = 15;
 
     optional bytes          bailiwick = 16;
+
+    optional bytes          reason = 8;
+    repeated bytes          keys = 9;
 }
