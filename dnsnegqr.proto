@@ -1,0 +1,10 @@
+package nmsg.sie;
+
+message DnsNegQR {
+    optional bytes          qname = 1;
+    optional uint32         qtype = 2;
+    optional uint32         qclass = 3;
+    optional uint32         rcode = 4;
+    optional bytes          response_ip = 5;
+    optional bytes          bailiwick = 6;
+}
