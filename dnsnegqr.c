@@ -62,6 +62,16 @@ struct nmsg_msgmod_field dnsnegqr_fields[] = {
 		.name = "bailiwick",
 		.print = dns_name_print
 	},
+	{
+		.type = nmsg_msgmod_ft_int64,
+		.name = "response_time_sec",
+		.flags = NMSG_MSGMOD_FIELD_NOPRINT
+	},
+	{
+		.type = nmsg_msgmod_ft_int32,
+		.name = "response_time_nsec",
+		.flags = NMSG_MSGMOD_FIELD_NOPRINT
+	},
 	NMSG_MSGMOD_FIELD_END
 };
 

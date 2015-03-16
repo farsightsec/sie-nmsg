@@ -7,4 +7,6 @@ message DnsNegQR {
     required uint32         rcode = 4;
     required bytes          response_ip = 5;
     optional bytes          bailiwick = 6;
+    optional int64          response_time_sec = 7;
+    optional sfixed32       response_time_nsec = 8;
 }
