@@ -104,6 +104,15 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 		.name = "response",
 		.print = dns_message_print
 	},
+	{
+		.type = nmsg_msgmod_ft_string,
+		.name = "reason",
+	},
+	{
+		.type = nmsg_msgmod_ft_string,
+		.name = "keys",
+		.flags = NMSG_MSGMOD_FIELD_REPEATED,
+	},
 	NMSG_MSGMOD_FIELD_END
 };
 
