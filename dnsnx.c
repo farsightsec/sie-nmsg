@@ -21,8 +21,6 @@
 #include <string.h>
 #include <time.h>
 
-#include <wdns.h>
-
 #include "defs.h"
 #include "dnsnx.pb-c.h"
 
