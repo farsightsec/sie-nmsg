@@ -1,0 +1,11 @@
+package nmsg.sie;
+
+message DnsNX {
+    required bytes          qname = 1;
+    required uint32         qtype = 2;
+    required uint32         qclass = 3;
+    required bytes          response_ip = 4;
+    optional bytes          soa_rrname = 5;
+    optional int64          response_time_sec = 6;
+    optional sfixed32       response_time_nsec = 7;
+}

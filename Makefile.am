@@ -29,6 +29,7 @@ nobase_nmsgsieinclude_HEADERS = \
 nobase_nodist_nmsgsieinclude_HEADERS = \
 	delay.pb-c.h \
 	dnsdedupe.pb-c.h \
+	dnsnx.pb-c.h \
 	qr.pb-c.h \
 	reputation.pb-c.h \
 	newdomain.pb-c.h
@@ -48,6 +49,7 @@ nmsg_msg9_sie_la_SOURCES = nmsg_msg_sie.c
 nodist_nmsg_msg9_sie_la_SOURCES = \
 	delay.pb-c.c delay.pb-c.h \
 	dnsdedupe.pb-c.c dnsdedupe.pb-c.h \
+	dnsnx.pb-c.c dnsnx.pb-c.h \
 	qr.pb-c.c qr.pb-c.h \
 	reputation.pb-c.c reputation.pb-c.h \
 	newdomain.pb-c.c newdomain.pb-c.h
@@ -58,6 +60,8 @@ EXTRA_DIST += \
 	delay.proto \
 	dnsdedupe.c \
 	dnsdedupe.proto \
+	dnsnx.c \
+	dnsnx.proto \
 	qr.c \
 	qr.proto \
 	reputation.c \
