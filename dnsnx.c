@@ -1,4 +1,4 @@
-/* SIE DNS Negative QR nmsg message module */
+/* SIE DNS NXDOMAIN nmsg message module */
 
 /*
  * Copyright (c) 2010-2012 by Farsight Security, Inc.
@@ -24,15 +24,11 @@
 #include <wdns.h>
 
 #include "defs.h"
-#include "dnsnegqr.pb-c.h"
-
-/* Exported via module context. */
-
-static NMSG_MSGMOD_FIELD_PRINTER(dnsnegqr_rcode_print);
+#include "dnsnx.pb-c.h"
 
 /* Data. */
 
-struct nmsg_msgmod_field dnsnegqr_fields[] = {
+struct nmsg_msgmod_field dnsnx_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "qname",
@@ -49,17 +45,12 @@ struct nmsg_msgmod_field dnsnegqr_fields[] = {
 		.print = dns_type_print
 	},
 	{
-		.type = nmsg_msgmod_ft_uint16,
-		.name = "rcode",
-		.print = dnsnegqr_rcode_print
-	},
-	{
 		.type = nmsg_msgmod_ft_ip,
 		.name = "response_ip",
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
-		.name = "bailiwick",
+		.name = "soa_rrname",
 		.print = dns_name_print
 	},
 	{
@@ -80,28 +71,8 @@ struct nmsg_msgmod_field dnsnegqr_fields[] = {
 struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
 	NMSG_MSGMOD_REQUIRED_INIT,
 	.vendor		= NMSG_VENDOR_SIE,
-	.msgtype	= { NMSG_VENDOR_SIE_DNSNEGQR_ID, NMSG_VENDOR_SIE_DNSNEGQR_NAME },
+	.msgtype	= { NMSG_VENDOR_SIE_DNSNX_ID, NMSG_VENDOR_SIE_DNSNX_NAME },
 
-	.pbdescr	= &nmsg__sie__dns_neg_qr__descriptor,
-	.fields		= dnsnegqr_fields
+	.pbdescr	= &nmsg__sie__dns_nx__descriptor,
+	.fields		= dnsnx_fields
 };
-
-/* Private. */
-
-static nmsg_res
-dnsnegqr_rcode_print(nmsg_message_t msg,
-		  struct nmsg_msgmod_field *field,
-		  void *ptr,
-		  struct nmsg_strbuf *sb,
-		  const char *endline)
-{
-	const char *s;
-	uint16_t *rcode = ptr;
-
-	s = wdns_rcode_to_str(*rcode);
-	return (nmsg_strbuf_append(sb, "%s: %s (%hu)%s",
-				   field->name,
-				   s ? s : "<UNKNOWN>",
-				   *rcode, endline));
-}
-
