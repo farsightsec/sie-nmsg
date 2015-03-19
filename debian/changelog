@@ -1,3 +1,9 @@
+sie-nmsg (1.0.0-1) debian-farsightsec; urgency=medium
+
+  * New upstream release.
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 19 Mar 2015 14:29:33 -0400
+
 sie-nmsg (0.17.0-3) debian-farsightsec; urgency=medium
 
   * Convert nmsg-msg-module-sie to a meta package.
