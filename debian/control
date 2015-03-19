@@ -43,6 +43,7 @@ Description: SIE message module plugin for libnmsg
  SIE/reputation
  SIE/delay
  SIE/newdomain
+ SIE/dnsnx
 
 Package: nmsg-msg-module-sie-dev
 Architecture: any
@@ -57,3 +58,4 @@ Description: SIE message module headers for libnmsg
  SIE/reputation
  SIE/delay
  SIE/newdomain
+ SIE/dnsnx
