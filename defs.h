@@ -16,4 +16,7 @@
 #define NMSG_VENDOR_SIE_NEWDOMAIN_ID	5
 #define NMSG_VENDOR_SIE_NEWDOMAIN_NAME	"newdomain"
 
+#define NMSG_VENDOR_SIE_DNSNX_ID	6
+#define NMSG_VENDOR_SIE_DNSNX_NAME	"dnsnx"
+
 #endif /* NMSG_SIE_DEFS_H */
