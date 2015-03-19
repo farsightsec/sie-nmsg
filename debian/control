@@ -12,7 +12,7 @@ Build-Depends:
  libwdns-dev (>= 0.6.0~),
  protobuf-c-compiler (>= 1.0.1~),
  pkg-config
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 
 Package: nmsg-msg-module-sie
 Architecture: all
