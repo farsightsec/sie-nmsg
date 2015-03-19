@@ -1,7 +1,7 @@
 Source: sie-nmsg
 Section: net
 Priority: optional
-Maintainer: Robert Edmonds <edmonds@fsi.io>
+Maintainer: Farsight Security, Inc. <software@farsightsecurity.com>
 Build-Depends:
  dpkg-dev (>= 1.16.0~),
  debhelper (>= 9~),
