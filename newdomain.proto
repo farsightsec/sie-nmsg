@@ -24,6 +24,11 @@ message NewDomain {
 
     optional bytes          bailiwick = 16;
 
-    optional bytes          reason = 8;
     repeated bytes          keys = 9;
+
+    optional bool           new_domain = 19;
+    optional bool           new_rrname = 20;
+    optional bool           new_rrtype = 21;
+    repeated bool           new_rr = 22;
+    optional bool           new_rrset = 23;
 }
