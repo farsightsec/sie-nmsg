@@ -106,12 +106,29 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 	},
 	{
 		.type = nmsg_msgmod_ft_string,
-		.name = "reason",
-	},
-	{
-		.type = nmsg_msgmod_ft_string,
 		.name = "keys",
 		.flags = NMSG_MSGMOD_FIELD_REPEATED,
+	},
+	{
+		.type = nmsg_msgmod_ft_bool,
+		.name = "new_domain",
+	},
+	{
+		.type = nmsg_msgmod_ft_bool,
+		.name = "new_rrname",
+	},
+	{
+		.type = nmsg_msgmod_ft_bool,
+		.name = "new_rrtype",
+	},
+	{
+		.type = nmsg_msgmod_ft_bool,
+		.name = "new_rr",
+		.flags = NMSG_MSGMOD_FIELD_REPEATED,
+	},
+	{
+		.type = nmsg_msgmod_ft_bool,
+		.name = "new_rrset",
 	},
 	NMSG_MSGMOD_FIELD_END
 };
