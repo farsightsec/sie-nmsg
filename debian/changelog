@@ -1,3 +1,9 @@
+sie-nmsg (1.1.0-1) debian-farsightsec; urgency=medium
+
+  * New upstream release.
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 21 May 2015 14:52:42 -0400
+
 sie-nmsg (1.0.0-1) debian-farsightsec; urgency=medium
 
   * New upstream release.
