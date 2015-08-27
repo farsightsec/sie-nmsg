@@ -33,6 +33,20 @@ static NMSG_MSGMOD_FIELD_PRINTER(dns_rdata_print);
 static NMSG_MSGMOD_FIELD_PRINTER(dns_message_print);
 static NMSG_MSGMOD_FIELD_PRINTER(time_print);
 
+static NMSG_MSGMOD_FIELD_FORMATTER(dns_name_format);
+static NMSG_MSGMOD_FIELD_FORMATTER(dns_type_format);
+static NMSG_MSGMOD_FIELD_FORMATTER(dns_class_format);
+static NMSG_MSGMOD_FIELD_FORMATTER(dns_rdata_format);
+static NMSG_MSGMOD_FIELD_FORMATTER(dns_message_format);
+static NMSG_MSGMOD_FIELD_FORMATTER(time_format);
+
+static NMSG_MSGMOD_FIELD_PARSER(dns_name_parse);
+static NMSG_MSGMOD_FIELD_PARSER(dns_type_parse);
+static NMSG_MSGMOD_FIELD_PARSER(dns_class_parse);
+static NMSG_MSGMOD_FIELD_PARSER(dns_rdata_parse);
+static NMSG_MSGMOD_FIELD_PARSER(dns_message_parse);
+static NMSG_MSGMOD_FIELD_PARSER(time_parse);
+
 /* Data. */
 
 struct nmsg_msgmod_field dnsdedupe_fields[] = {
@@ -47,22 +61,30 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "time_first",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "time_last",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "zone_time_first",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "zone_time_last",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_ip,
@@ -71,22 +93,30 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "bailiwick",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rrname",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "rrclass",
-		.print = dns_class_print
+		.print = dns_class_print,
+		.format = dns_class_format,
+		.parse = dns_class_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "rrtype",
-		.print = dns_type_print
+		.print = dns_type_print,
+		.format = dns_type_format,
+		.parse = dns_type_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
@@ -96,12 +126,16 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rdata",
 		.flags = NMSG_MSGMOD_FIELD_REPEATED,
-		.print = dns_rdata_print
+		.print = dns_rdata_print,
+		.format = dns_rdata_format,
+		.parse = dns_rdata_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "response",
-		.print = dns_message_print
+		.print = dns_message_print,
+		.format = dns_message_format,
+		.parse = dns_message_parse
 	},
 	NMSG_MSGMOD_FIELD_END
 };
@@ -148,6 +182,25 @@ time_print(nmsg_message_t msg,
 }
 
 static nmsg_res
+time_format(nmsg_message_t m,
+	    struct nmsg_msgmod_field *field,
+	    void *ptr,
+	    struct nmsg_strbuf *sb,
+	    const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
+time_parse(nmsg_message_t m,
+	   struct nmsg_msgmod_field *field,
+	   const char *value,
+	   void **ptr,
+	   size_t *len,
+	   const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
 dns_name_print(nmsg_message_t msg,
 	       struct nmsg_msgmod_field *field,
 	       void *ptr,
@@ -167,6 +220,25 @@ dns_name_print(nmsg_message_t msg,
 					 name, endline);
 	}
 	return (res);
+}
+
+static nmsg_res
+dns_name_format(nmsg_message_t m,
+	        struct nmsg_msgmod_field *field,
+	        void *ptr,
+	        struct nmsg_strbuf *sb,
+	        const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
+dns_name_parse(nmsg_message_t m,
+	       struct nmsg_msgmod_field *field,
+	       const char *value,
+	       void **ptr,
+	       size_t *len,
+	       const char *endline) {
+	return (nmsg_res_notimpl);
 }
 
 static nmsg_res
@@ -190,6 +262,25 @@ dns_type_print(nmsg_message_t msg,
 }
 
 static nmsg_res
+dns_type_format(nmsg_message_t m,
+	        struct nmsg_msgmod_field *field,
+	        void *ptr,
+	        struct nmsg_strbuf *sb,
+	        const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
+dns_type_parse(nmsg_message_t m,
+	       struct nmsg_msgmod_field *field,
+	       const char *value,
+	       void **ptr,
+	       size_t *len,
+	       const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
 dns_class_print(nmsg_message_t msg,
 		struct nmsg_msgmod_field *field,
 		void *ptr,
@@ -207,6 +298,25 @@ dns_class_print(nmsg_message_t msg,
 				 s ? s : "<UNKNOWN>",
 				 rrclass, endline);
 	return (res);
+}
+
+static nmsg_res
+dns_class_format(nmsg_message_t m,
+	         struct nmsg_msgmod_field *field,
+	         void *ptr,
+	         struct nmsg_strbuf *sb,
+	         const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
+dns_class_parse(nmsg_message_t m,
+	        struct nmsg_msgmod_field *field,
+	        const char *value,
+	        void **ptr,
+	        size_t *len,
+	        const char *endline) {
+	return (nmsg_res_notimpl);
 }
 
 static nmsg_res
@@ -248,6 +358,25 @@ dns_rdata_print(nmsg_message_t msg,
 }
 
 static nmsg_res
+dns_rdata_format(nmsg_message_t m,
+	         struct nmsg_msgmod_field *field,
+	         void *ptr,
+	         struct nmsg_strbuf *sb,
+	         const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
+dns_rdata_parse(nmsg_message_t m,
+	        struct nmsg_msgmod_field *field,
+	        const char *value,
+	        void **ptr,
+	        size_t *len,
+	        const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
 dns_message_print(nmsg_message_t msg,
 		  struct nmsg_msgmod_field *field,
 		  void *ptr,
@@ -280,4 +409,23 @@ dns_message_print(nmsg_message_t msg,
 	}
 	nmsg_strbuf_append(sb, "%s: <PARSE ERROR>%s", field->name, endline);
 	return (nmsg_res_success);
+}
+
+static nmsg_res
+dns_message_format(nmsg_message_t m,
+	           struct nmsg_msgmod_field *field,
+	           void *ptr,
+	           struct nmsg_strbuf *sb,
+	           const char *endline) {
+	return (nmsg_res_notimpl);
+}
+
+static nmsg_res
+dns_message_parse(nmsg_message_t m,
+	          struct nmsg_msgmod_field *field,
+	          const char *value,
+	          void **ptr,
+	          size_t *len,
+	       const char *endline) {
+	return (nmsg_res_notimpl);
 }
