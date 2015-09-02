@@ -23,8 +23,8 @@ my_CFLAGS="-Wall \
 -Wformat-security"
 AC_SUBST([my_CFLAGS])
 
-PKG_CHECK_MODULES([libnmsg], [libnmsg >= 0.9.0])
-PKG_CHECK_MODULES([libwdns], [libwdns])
+PKG_CHECK_MODULES([libnmsg], [libnmsg >= 0.10.0])
+PKG_CHECK_MODULES([libwdns], [libwdns >= 0.7.0])
 
 PKG_CHECK_MODULES([libprotobuf_c], [libprotobuf-c >= 1.0.1])
 AC_PATH_PROG([PROTOC_C], [protoc-c])
