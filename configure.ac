@@ -24,7 +24,7 @@ my_CFLAGS="-Wall \
 AC_SUBST([my_CFLAGS])
 
 PKG_CHECK_MODULES([libnmsg], [libnmsg >= 0.10.0])
-PKG_CHECK_MODULES([libwdns], [libwdns >= 0.7.0])
+PKG_CHECK_MODULES([libwdns], [libwdns >= 0.8.0])
 
 PKG_CHECK_MODULES([libprotobuf_c], [libprotobuf-c >= 1.0.1])
 AC_PATH_PROG([PROTOC_C], [protoc-c])
