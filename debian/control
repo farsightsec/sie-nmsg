@@ -9,7 +9,7 @@ Build-Depends:
  libnmsg-dev (>= 0.10.0~),
  libpcap0.8-dev,
  libprotobuf-c-dev (>= 1.0.1~),
- libwdns-dev (>= 0.6.0~),
+ libwdns-dev (>= 0.8.0~),
  pkg-config,
  protobuf-c-compiler (>= 1.0.1~),
 Standards-Version: 3.9.6
