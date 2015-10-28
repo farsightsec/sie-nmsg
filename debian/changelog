@@ -1,3 +1,13 @@
+sie-nmsg (1.2.0-1) debian-farsightsec; urgency=medium
+
+  * New release.
+  * [a057e84b] debian/gbp.conf: Update for debian -> next merge
+  * [a21fc697] debian/: Run "wrap-and-sort -sbt"
+  * [089d5903] debian/control: Build-depend on libnmsg-dev (>= 0.10.0~)
+  * [8eb91cd9] debian/control: Build-depend on libwdns-dev (>= 0.8.0~)
+
+ -- Robert Edmonds <edmonds@fsi.io>  Tue, 27 Oct 2015 22:11:12 -0400
+
 sie-nmsg (1.1.0-1) debian-farsightsec; urgency=medium
 
   * New upstream release.
