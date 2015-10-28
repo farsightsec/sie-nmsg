@@ -30,12 +30,16 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "domain",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "time_seen",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_enum,
@@ -48,22 +52,30 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "time_first",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "time_last",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "zone_time_first",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
 		.name = "zone_time_last",
-		.print = time_print
+		.print = time_print,
+		.format = time_format,
+		.parse = time_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_ip,
@@ -72,22 +84,30 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "bailiwick",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rrname",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "rrclass",
-		.print = dns_class_print
+		.print = dns_class_print,
+		.format = dns_class_format,
+		.parse = dns_class_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "rrtype",
-		.print = dns_type_print
+		.print = dns_type_print,
+		.format = dns_type_format,
+		.parse = dns_type_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint32,
@@ -97,12 +117,16 @@ struct nmsg_msgmod_field newdomain_fields[] = {
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "rdata",
 		.flags = NMSG_MSGMOD_FIELD_REPEATED,
-		.print = dns_rdata_print
+		.print = dns_rdata_print,
+		.format = dns_rdata_format,
+		.parse = dns_rdata_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "response",
-		.print = dns_message_print
+		.print = dns_message_print,
+		.format = dns_message_format,
+		.parse = dns_message_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_string,

@@ -30,17 +30,23 @@ struct nmsg_msgmod_field dnsnx_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "qname",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "qclass",
-		.print = dns_class_print
+		.print = dns_class_print,
+		.format = dns_class_format,
+		.parse = dns_class_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_uint16,
 		.name = "qtype",
-		.print = dns_type_print
+		.print = dns_type_print,
+		.format = dns_type_format,
+		.parse = dns_type_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_ip,
@@ -49,7 +55,9 @@ struct nmsg_msgmod_field dnsnx_fields[] = {
 	{
 		.type = nmsg_msgmod_ft_bytes,
 		.name = "soa_rrname",
-		.print = dns_name_print
+		.print = dns_name_print,
+		.format = dns_name_format,
+		.parse = dns_name_parse
 	},
 	{
 		.type = nmsg_msgmod_ft_int64,
