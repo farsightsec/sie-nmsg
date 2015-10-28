@@ -1,0 +1,31 @@
+sie-nmsg (1.1.0-1) debian-farsightsec; urgency=medium
+
+  * New upstream release.
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 21 May 2015 14:52:42 -0400
+
+sie-nmsg (1.0.0-1) debian-farsightsec; urgency=medium
+
+  * New upstream release.
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 19 Mar 2015 14:29:33 -0400
+
+sie-nmsg (0.17.0-3) debian-farsightsec; urgency=medium
+
+  * Convert nmsg-msg-module-sie to a meta package.
+  * Build a dummy package "nmsg-msg8-module-sie" that depends on
+    nmsg-msg-module-sie, to support smooth upgrades.
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 18 Dec 2014 15:36:01 -0500
+
+sie-nmsg (0.17.0-2) debian-farsightsec; urgency=medium
+
+  * nmsg-msg9-module-sie: provide the virtual package "nmsg-msg-module-sie".
+
+ -- Robert Edmonds <edmonds@fsi.io>  Thu, 25 Sep 2014 14:17:57 -0400
+
+sie-nmsg (0.17.0-1) debian-farsightsec; urgency=medium
+
+  * Current release.
+
+ -- Robert Edmonds <edmonds@fsi.io>  Tue, 12 Aug 2014 19:36:01 -0400
