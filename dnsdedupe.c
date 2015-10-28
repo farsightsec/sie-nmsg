@@ -186,7 +186,8 @@ time_format(nmsg_message_t m,
 	    struct nmsg_msgmod_field *field,
 	    void *ptr,
 	    struct nmsg_strbuf *sb,
-	    const char *endline) {
+	    const char *endline)
+{
 	nmsg_res res = nmsg_res_failure;
 	time_t t;
 	struct tm gm;
@@ -254,10 +255,10 @@ dns_name_print(nmsg_message_t msg,
 
 static nmsg_res
 dns_name_format(nmsg_message_t m,
-	        struct nmsg_msgmod_field *field,
-	        void *ptr,
-	        struct nmsg_strbuf *sb,
-	        const char *endline)
+		struct nmsg_msgmod_field *field,
+		void *ptr,
+		struct nmsg_strbuf *sb,
+		const char *endline)
 {
 	ProtobufCBinaryData *rrname = ptr;
 	char name[WDNS_PRESLEN_NAME];
@@ -279,8 +280,8 @@ dns_name_parse(nmsg_message_t m,
 	       const char *value,
 	       void **ptr,
 	       size_t *len,
-	       const char *endline) {
-
+	       const char *endline)
+{
 	wdns_res res;
 	wdns_name_t *name;
 
@@ -291,7 +292,7 @@ dns_name_parse(nmsg_message_t m,
 
 	res = wdns_str_to_name_case(value, name);
 	if (res != wdns_res_success) {
-		free (name);
+		free(name);
 		return (nmsg_res_parse_error);
 	}
 
@@ -325,10 +326,11 @@ dns_type_print(nmsg_message_t msg,
 
 static nmsg_res
 dns_type_format(nmsg_message_t m,
-	        struct nmsg_msgmod_field *field,
-	        void *ptr,
-	        struct nmsg_strbuf *sb,
-	        const char *endline) {
+		struct nmsg_msgmod_field *field,
+		void *ptr,
+		struct nmsg_strbuf *sb,
+		const char *endline)
+{
 	uint16_t rrtype;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
@@ -345,7 +347,8 @@ dns_type_parse(nmsg_message_t msg,
 	       const char *value,
 	       void **ptr,
 	       size_t *len,
-	       const char *endline) {
+	       const char *endline)
+{
 	uint16_t *rrtype;
 
 	rrtype = malloc(sizeof(*rrtype));
@@ -387,10 +390,11 @@ dns_class_print(nmsg_message_t msg,
 
 static nmsg_res
 dns_class_format(nmsg_message_t m,
-	         struct nmsg_msgmod_field *field,
-	         void *ptr,
-	         struct nmsg_strbuf *sb,
-	         const char *endline) {
+		 struct nmsg_msgmod_field *field,
+		 void *ptr,
+		 struct nmsg_strbuf *sb,
+		 const char *endline)
+{
 	uint16_t rrclass;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
@@ -403,11 +407,12 @@ dns_class_format(nmsg_message_t m,
 
 static nmsg_res
 dns_class_parse(nmsg_message_t m,
-	        struct nmsg_msgmod_field *field,
-	        const char *value,
-	        void **ptr,
-	        size_t *len,
-	        const char *endline) {
+		struct nmsg_msgmod_field *field,
+		const char *value,
+		void **ptr,
+		size_t *len,
+		const char *endline)
+{
 	uint16_t *rrclass;
 
 	rrclass = malloc(sizeof(*rrclass));
@@ -468,10 +473,11 @@ dns_rdata_print(nmsg_message_t msg,
 
 static nmsg_res
 dns_rdata_format(nmsg_message_t msg,
-	         struct nmsg_msgmod_field *field,
-	         void *ptr,
-	         struct nmsg_strbuf *sb,
-	         const char *endline) {
+		 struct nmsg_msgmod_field *field,
+		 void *ptr,
+		 struct nmsg_strbuf *sb,
+		 const char *endline)
+{
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
@@ -505,11 +511,12 @@ dns_rdata_format(nmsg_message_t msg,
 
 static nmsg_res
 dns_rdata_parse(nmsg_message_t m,
-	        struct nmsg_msgmod_field *field,
-	        const char *value,
-	        void **ptr,
-	        size_t *len,
-	        const char *endline) {
+		struct nmsg_msgmod_field *field,
+		const char *value,
+		void **ptr,
+		size_t *len,
+		const char *endline)
+{
 	nmsg_res res;
 	wdns_res w_res;
 	uint32_t *rrtype, *rrclass;
@@ -581,7 +588,8 @@ dns_message_format(nmsg_message_t msg,
 	           struct nmsg_msgmod_field *field,
 	           void *ptr,
 	           struct nmsg_strbuf *sb,
-	           const char *endline) {
+	           const char *endline)
+{
 	nmsg_res res;
 	uint8_t *payload;
 	size_t payload_len;
@@ -611,10 +619,11 @@ dns_message_format(nmsg_message_t msg,
 
 static nmsg_res
 dns_message_parse(nmsg_message_t m,
-	          struct nmsg_msgmod_field *field,
-	          const char *value,
-	          void **ptr,
-	          size_t *len,
-	       const char *endline) {
+		  struct nmsg_msgmod_field *field,
+		  const char *value,
+		  void **ptr,
+		  size_t *len,
+		  const char *endline)
+{
 	return (nmsg_res_notimpl);
 }
