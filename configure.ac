@@ -1,6 +1,6 @@
 AC_PREREQ(2.64)
 AC_INIT([sie-nmsg],
-        [1.1.0],
+        [1.2.0],
         [https://github.com/farsightsec/sie-nmsg/issues],
         [sie-nmsg],
         [https://github.com/farsightsec/sie-nmsg])
