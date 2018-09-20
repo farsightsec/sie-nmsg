@@ -1,6 +1,8 @@
 BUILT_SOURCES =
 EXTRA_DIST = COPYRIGHT LICENSE
 CLEANFILES =
+TESTS =
+check_PROGRAMS =
 
 AM_CPPFLAGS = \
 	-include $(top_builddir)/config.h
@@ -68,3 +70,12 @@ EXTRA_DIST += \
 	reputation.proto \
 	newdomain.c \
 	newdomain.proto
+
+# Tests
+
+TESTS_ENVIRONMENT = NMSG_MSGMOD_DIR=$(top_builddir)/.libs
+
+TESTS += tests/test-parse
+check_PROGRAMS += tests/test-parse
+tests_test_parse_LDADD = $(libnmsg_LIBS)
+tests_test_parse_SOURCES = tests/test-parse.c

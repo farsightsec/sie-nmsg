@@ -30,8 +30,8 @@
 #include "nmsg/msgmod.h"
 #include "nmsg/vendors.h"
 #include "nmsg/base/defs.h"
-#include "nmsg/sie/defs.h"
-#include "nmsg/sie/dnsdedupe.pb-c.h"
+#include "defs.h"
+#include "dnsdedupe.pb-c.h"
 
 #include "wdns.h"
 
@@ -39,7 +39,7 @@
 
 
 #define TEST_JSON_1	"{\"time\":\"2018-02-20 22:01:47.303896708\",\"vname\":\"SIE\",\"mname\":\"dnsdedupe\",\"source\":\"a1ba02cf\",\"message\":{\"type\":\"INSERTION\",\"count\":2,\"time_first\":\"2018-02-20 16:15:04\",\"time_last\":\"2018-02-20 19:04:42\",\"response_ip\":\"194.85.252.62\",\"bailiwick\":\"ru.\",\"rrname\":\"kinozal-chat.ru.\",\"rrclass\":\"IN\",\"rrtype\":\"NS\",\"rrttl\":345600,\"rdata\":[\"cdns1.ihc.ru.\",\"cdns2.ihc.ru.\"]}}"
-#define TEST_JSON_2	"{\"time\":\"2018-02-20 22:02:05.856899023\",\"vname\":\"SIE\",\"mname\":\"newdomain\",\"source\":\"a1ba02cf\",\"message\":{\"domain\":\"sabon.fr.\",\"time_seen\":\"2018-02-20 22:00:13\",\"bailiwick\":\"sabon.fr.\",\"rrname\":\"asphalt.sabon.fr.\",\"rrclass\":\"IN\",\"rrtype\":\"MX\",\"rdata\":[\"30 mx.sabon.fr.\"],\"keys\":[],\"new_rr\":[]}}"
+#define TEST_JSON_2	"{\"time\":\"2018-02-20 22:02:05.856899023\",\"vname\":\"SIE\",\"mname\":\"newdomain\",\"source\":\"11111111\",\"message\":{\"domain\":\"sabon.fr.\",\"time_seen\":\"2018-02-20 22:00:13\",\"bailiwick\":\"sabon.fr.\",\"rrname\":\"asphalt.sabon.fr.\",\"rrclass\":\"IN\",\"rrtype\":\"MX\",\"rdata\":[\"30 mx.sabon.fr.\"],\"keys\":[],\"new_rr\":[]}}"
 
 
 /* Test decoding of json data with intense validation */
@@ -164,7 +164,7 @@ test_json(void)
 
 	check(nmsg_message_get_vid(m) == NMSG_VENDOR_SIE_ID);
 	check(nmsg_message_get_msgtype(m) == NMSG_VENDOR_SIE_NEWDOMAIN_ID);
-	check(nmsg_message_get_source(m) == 0xa1ba02cf);
+	check(nmsg_message_get_source(m) == 0x11111111);
 	check(nmsg_message_get_num_fields(m, &nf) == nmsg_res_success);
 	check(nf == 22);
 	mmod2 = nmsg_message_get_msgmod(m);
