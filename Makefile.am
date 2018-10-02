@@ -79,3 +79,13 @@ TESTS += tests/test-parse
 check_PROGRAMS += tests/test-parse
 tests_test_parse_LDADD = $(libnmsg_LIBS)
 tests_test_parse_SOURCES = tests/test-parse.c
+
+TESTS += tests/test-misc
+check_PROGRAMS += tests/test-misc
+tests_test_misc_LDADD = $(libnmsg_LIBS)
+tests_test_misc_SOURCES = tests/test-misc.c
+
+TESTS += tests/test-io
+check_PROGRAMS += tests/test-io
+tests_test_io_LDADD = $(libnmsg_LIBS)
+tests_test_io_SOURCES = tests/test-io.c
