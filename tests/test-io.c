@@ -303,8 +303,8 @@ main(void)
 {
 	check_abort(nmsg_init() == nmsg_res_success);
 
-	check_explicit2_display_only(test_io_filters() == 0, "test-misc/ test_io_filters");
-	check_explicit2_display_only(test_io_filters2() == 0, "test-misc/ test_io_filters2");
+	check_explicit2_display_only(test_io_filters() == 0, "test-io/ test_io_filters");
+	check_explicit2_display_only(test_io_filters2() == 0, "test-io/ test_io_filters2");
 
         g_check_test_status(false);
 
