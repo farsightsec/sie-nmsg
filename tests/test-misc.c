@@ -33,7 +33,7 @@
 #include "nmsg/msgmod.h"
 #include "nmsg/vendors.h"
 #include "nmsg/base/defs.h"
-#include "nmsg/sie/defs.h"
+#include "defs.h"
 
 #define NAME	"test-misc"
 
