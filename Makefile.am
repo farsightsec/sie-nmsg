@@ -87,5 +87,6 @@ tests_test_misc_SOURCES = tests/test-misc.c
 
 TESTS += tests/test-io
 check_PROGRAMS += tests/test-io
+tests_test_io_CPPFLAGS = -DSRCDIR="\"$(abs_srcdir)\"" $(AM_CPPFLAGS)
 tests_test_io_LDADD = $(libnmsg_LIBS)
 tests_test_io_SOURCES = tests/test-io.c

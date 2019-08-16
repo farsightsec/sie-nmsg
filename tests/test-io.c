@@ -63,7 +63,7 @@ test_io_filters2(void)
 
 		check_return(socketpair(AF_LOCAL, SOCK_STREAM, 0, sfds) != -1);
 
-		fd = open("./tests/generic-tests/newdomain.nmsg", O_RDONLY);
+		fd = open(SRCDIR "/tests/generic-tests/newdomain.nmsg", O_RDONLY);
 		check_return(fd != -1);
 
 		i = nmsg_input_open_sock(sfds[0]);
@@ -236,8 +236,8 @@ test_io_filters(void)
 		check_return(io != NULL);
 
 		/* Feed the nmsg io loop with 2 nmsg files that have 5 messages each. */
-		check_return(nmsg_io_add_input_fname(io, "./tests/generic-tests/dedupe.nmsg", NULL) == nmsg_res_success);
-		check_return(nmsg_io_add_input_fname(io, "./tests/generic-tests/newdomain.nmsg", NULL) == nmsg_res_success);
+		check_return(nmsg_io_add_input_fname(io, SRCDIR "/tests/generic-tests/dedupe.nmsg", NULL) == nmsg_res_success);
+		check_return(nmsg_io_add_input_fname(io, SRCDIR "/tests/generic-tests/newdomain.nmsg", NULL) == nmsg_res_success);
 
 		/* Use an output callback for the output. */
 		o = nmsg_output_open_callback(output_callback, user_data);
