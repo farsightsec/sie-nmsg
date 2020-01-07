@@ -160,6 +160,7 @@ time_print(nmsg_message_t msg,
 	   struct nmsg_strbuf *sb,
 	   const char *endline)
 {
+	(void)msg; /* unused parameter */
 	nmsg_res res = nmsg_res_failure;
 	time_t t;
 	struct tm gm;
@@ -188,6 +189,9 @@ time_format(nmsg_message_t m,
 	    struct nmsg_strbuf *sb,
 	    const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	nmsg_res res = nmsg_res_failure;
 	time_t t;
 	struct tm gm;
@@ -215,6 +219,9 @@ time_parse(nmsg_message_t m,
 	   size_t *len,
 	   const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	time_t * t;
 	struct tm gm;
 
@@ -238,6 +245,7 @@ dns_name_print(nmsg_message_t msg,
 	       struct nmsg_strbuf *sb,
 	       const char *endline)
 {
+	(void)msg; /* unused parameter */
 	ProtobufCBinaryData *rrname = ptr;
 	char name[WDNS_PRESLEN_NAME];
 	nmsg_res res = nmsg_res_success;
@@ -260,6 +268,9 @@ dns_name_format(nmsg_message_t m,
 		struct nmsg_strbuf *sb,
 		const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	ProtobufCBinaryData *rrname = ptr;
 	char name[WDNS_PRESLEN_NAME];
 	nmsg_res res = nmsg_res_success;
@@ -282,6 +293,9 @@ dns_name_parse(nmsg_message_t m,
 	       size_t *len,
 	       const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	wdns_res res;
 	wdns_name_t *name;
 
@@ -311,6 +325,7 @@ dns_type_print(nmsg_message_t msg,
 	       struct nmsg_strbuf *sb,
 	       const char *endline)
 {
+	(void)msg; /* unused parameter */
 	uint16_t rrtype;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
@@ -331,6 +346,9 @@ dns_type_format(nmsg_message_t m,
 		struct nmsg_strbuf *sb,
 		const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	uint16_t rrtype;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
@@ -349,6 +367,9 @@ dns_type_parse(nmsg_message_t msg,
 	       size_t *len,
 	       const char *endline)
 {
+	(void)msg; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	uint16_t *rrtype;
 
 	rrtype = malloc(sizeof(*rrtype));
@@ -375,6 +396,7 @@ dns_class_print(nmsg_message_t msg,
 		struct nmsg_strbuf *sb,
 		const char *endline)
 {
+	(void)msg; /* unused parameter */
 	uint16_t rrclass;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
@@ -395,6 +417,9 @@ dns_class_format(nmsg_message_t m,
 		 struct nmsg_strbuf *sb,
 		 const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	uint16_t rrclass;
 	const char *s;
 	nmsg_res res = nmsg_res_success;
@@ -413,6 +438,9 @@ dns_class_parse(nmsg_message_t m,
 		size_t *len,
 		const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	uint16_t *rrclass;
 
 	rrclass = malloc(sizeof(*rrclass));
@@ -435,11 +463,12 @@ dns_class_parse(nmsg_message_t m,
 
 static nmsg_res
 dns_rdata_print(nmsg_message_t msg,
-		struct nmsg_msgmod_field *field __attribute__((unused)),
+		struct nmsg_msgmod_field *field,
 		void *ptr,
 		struct nmsg_strbuf *sb,
 		const char *endline)
 {
+	(void)field; /* unused parameter */
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
@@ -478,6 +507,8 @@ dns_rdata_format(nmsg_message_t msg,
 		 struct nmsg_strbuf *sb,
 		 const char *endline)
 {
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
@@ -517,6 +548,8 @@ dns_rdata_parse(nmsg_message_t m,
 		size_t *len,
 		const char *endline)
 {
+	(void)field; /* unused parameter */
+	(void)endline; /* unused parameter */
 	nmsg_res res;
 	wdns_res w_res;
 	uint32_t *rrtype, *rrclass;
@@ -555,6 +588,7 @@ dns_message_print(nmsg_message_t msg,
 		  struct nmsg_strbuf *sb,
 		  const char *endline)
 {
+	(void)ptr; /* unused parameter */
 	nmsg_res res;
 	uint8_t *payload;
 	size_t payload_len;
@@ -590,6 +624,8 @@ dns_message_format(nmsg_message_t msg,
 	           struct nmsg_strbuf *sb,
 	           const char *endline)
 {
+	(void)ptr; /* unused parameter */
+	(void)endline; /* unused parameter */
 	nmsg_res res;
 	uint8_t *payload;
 	size_t payload_len;
@@ -625,5 +661,11 @@ dns_message_parse(nmsg_message_t m,
 		  size_t *len,
 		  const char *endline)
 {
+	(void)m; /* unused parameter */
+	(void)field; /* unused parameter */
+	(void)value; /* unused parameter */
+	(void)ptr; /* unused parameter */
+	(void)len; /* unused parameter */
+	(void)endline; /* unused parameter */
 	return (nmsg_res_notimpl);
 }
