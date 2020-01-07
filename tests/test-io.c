@@ -144,6 +144,8 @@ static int touched_exit, touched_atstart, touched_close, num_received, touched_f
 static void
 test_close_fp(struct nmsg_io_close_event *ce)
 {
+	(void)ce; /* unused parameter */
+
 	__sync_add_and_fetch(&touched_close, 1);
 
 	return;
@@ -152,6 +154,7 @@ test_close_fp(struct nmsg_io_close_event *ce)
 static void
 test_atstart_fp(unsigned threadno, void *user)
 {
+	(void)threadno; /* unused parameter */
 
 	if (user == user_data)
 		__sync_add_and_fetch(&touched_atstart, 1);
@@ -162,6 +165,7 @@ test_atstart_fp(unsigned threadno, void *user)
 static void
 test_atexit_fp(unsigned threadno, void *user)
 {
+	(void)threadno; /* unused parameter */
 
 	if (user == user_data)
 		__sync_add_and_fetch(&touched_exit, 1);
@@ -172,6 +176,7 @@ test_atexit_fp(unsigned threadno, void *user)
 static void
 output_callback(nmsg_message_t msg, void *user)
 {
+	(void)msg; /* unused parameter */
 
 	if (user == user_data)
 		__sync_add_and_fetch(&num_received, 1);
@@ -201,6 +206,7 @@ filter_callback(nmsg_message_t *msg, void *user, nmsg_filter_message_verdict *vr
 static nmsg_res
 filter_callback2(nmsg_message_t *msg, void *user, nmsg_filter_message_verdict *vres)
 {
+	(void)msg; /* unused parameter */
 
 	if (user != user_data)
 		return nmsg_res_failure;
