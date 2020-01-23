@@ -1,4 +1,4 @@
-sie-nmsg (1.2.1-1 debian-farsightsec; urgency=medium
+sie-nmsg (1.2.1-1) debian-farsightsec; urgency=medium
 
   * Several unit tests added.
 
