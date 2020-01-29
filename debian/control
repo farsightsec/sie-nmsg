@@ -47,7 +47,7 @@ Description: Transitional dummy package for migration to nmsg-msg-module-sie
 
 Package: nmsg-msg9-module-sie
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libnmsg6 (>= 0.15.1)
 Description: SIE message module plugin for libnmsg
  This package extends the libnmsg runtime to support the following
  message types:

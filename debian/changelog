@@ -3,9 +3,10 @@ sie-nmsg (1.2.1-1) debian-farsightsec; urgency=medium
   * Several unit tests added.
 
   * Debian packaging build with compat level 9 so installed library
-    module is in an architecture directory.
+    module is in an architecture directory. Dependency on libnmsg package
+    requires 0.15.1 so it looks in this same plugins directory by default.
 
- -- Farsight Security, Inc. <software@farsightsecurity.com>  Tue, 07 Jan 2020 10:55:04 -0500
+ -- Farsight Security, Inc. <software@farsightsecurity.com>  Wed, 29 Jan 2020 17:23:44 +0000
 
 sie-nmsg (1.2.0-1) debian-farsightsec; urgency=medium
 
