@@ -1,3 +1,4 @@
+syntax = "proto2";
 package nmsg.sie;
 
 import "dnsdedupe.proto";
