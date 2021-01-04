@@ -75,6 +75,10 @@ EXTRA_DIST += \
 
 TESTS_ENVIRONMENT = NMSG_MSGMOD_DIR=$(top_builddir)/.libs
 
+EXTRA_DIST += tests/errors.h
+EXTRA_DIST += tests/generic-tests/dedupe.nmsg
+EXTRA_DIST += tests/generic-tests/newdomain.nmsg
+
 TESTS += tests/test-parse
 check_PROGRAMS += tests/test-parse
 tests_test_parse_LDADD = $(libnmsg_LIBS)
