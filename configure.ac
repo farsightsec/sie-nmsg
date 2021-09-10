@@ -1,6 +1,6 @@
 AC_PREREQ(2.64)
 AC_INIT([sie-nmsg],
-        [1.2.1],
+        [1.3.0],
         [https://github.com/farsightsec/sie-nmsg/issues],
         [sie-nmsg],
         [https://github.com/farsightsec/sie-nmsg])
@@ -27,7 +27,7 @@ my_CFLAGS="-Wall \
 -Wformat-security"
 AC_SUBST([my_CFLAGS])
 
-PKG_CHECK_MODULES([libnmsg], [libnmsg >= 0.10.0])
+PKG_CHECK_MODULES([libnmsg], [libnmsg >= 1.0.0])
 PKG_CHECK_MODULES([libwdns], [libwdns >= 0.8.0])
 
 PKG_CHECK_MODULES([libprotobuf_c], [libprotobuf-c >= 1.0.1])

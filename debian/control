@@ -3,16 +3,16 @@ Section: net
 Priority: optional
 Maintainer: Farsight Security, Inc. <software@farsightsecurity.com>
 Build-Depends:
- debhelper (>= 9~),
+ debhelper (>= 11~),
  dh-autoreconf (>= 5~),
  dpkg-dev (>= 1.16.0~),
- libnmsg-dev (>= 0.10.0~),
+ libnmsg-dev (>= 1.0.0~),
  libpcap0.8-dev,
  libprotobuf-c-dev (>= 1.0.1~),
  libwdns-dev (>= 0.8.0~),
  pkg-config,
  protobuf-c-compiler (>= 1.0.1~),
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 
 Package: nmsg-msg-module-sie
 Architecture: all
@@ -47,7 +47,7 @@ Description: Transitional dummy package for migration to nmsg-msg-module-sie
 
 Package: nmsg-msg9-module-sie
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, libnmsg6 (>= 0.15.1)
+Depends: ${misc:Depends}, ${shlibs:Depends}, libnmsg8 (>= 1.0.0)
 Description: SIE message module plugin for libnmsg
  This package extends the libnmsg runtime to support the following
  message types:
