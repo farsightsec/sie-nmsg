@@ -1,4 +1,4 @@
-Name:           nmsg-msg-module-sie
+Name:           sie-nmsg
 Version:        1.3.0
 Release:        1%{?dist}
 Summary:	SIE message module for libnmsg
@@ -9,23 +9,25 @@ Source0:        https://dl.farsightsecurity.com/dist/sie-nmsg/sie-nmsg-%{version
 
 BuildRequires:  libpcap-devel protobuf-c-devel wdns-devel libnmsg-devel
 
+%description
+
+%package -n nmsg-msg-module-sie
 Summary:	SIE message module plugin for libnmsg
 Requires:	libpcap protobuf-c
 
-%description
+%description -n nmsg-msg-module-sie
 This package extends the libnmsg runtime to support the following
 message types: sie/reputation, sie/dnsdedupe, sie/qr, sie/newdomain,
 sie/dnsnx, and sie/delay.pb.
 
-%package devel
+%package -n nmsg-msg-module-sie-devel
 Summary:        SIE message module plugin for libnmsg (development files)
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description devel
+%description -n nmsg-msg-module-sie-devel
 This package contains the static library and header files for SIE NMSG.
 
-
-%prep -n 
+%prep
 %setup -q -n sie-nmsg-%{version}
 
 
@@ -40,11 +42,11 @@ rm -rf $RPM_BUILD_ROOT
 %make_install
 
 
-%files
+%files -n nmsg-msg-module-sie
 %defattr(-,root,root,-)
 %{_libdir}/nmsg/*.so
 
-%files devel
+%files -n nmsg-msg-module-sie-devel
 %{_libdir}/nmsg/*.a
 %{_libdir}/nmsg/*.la
 %{_includedir}/*
