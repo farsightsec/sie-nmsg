@@ -22,7 +22,7 @@ sie/dnsnx, and sie/delay.pb.
 
 %package -n nmsg-msg-module-sie-devel
 Summary:        SIE message module plugin for libnmsg (development files)
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       nmsg-msg-module-sie%{?_isa} = %{version}-%{release}
 
 %description -n nmsg-msg-module-sie-devel
 This package contains the static library and header files for SIE NMSG.
