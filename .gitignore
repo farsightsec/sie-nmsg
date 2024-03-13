@@ -18,3 +18,9 @@
 Makefile
 Makefile.in
 TAGS
+test-suite.log
+tests/test-io
+tests/test-misc
+tests/test-parse
+tests/*.log
+tests/*.trs

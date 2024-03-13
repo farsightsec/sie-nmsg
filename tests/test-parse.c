@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2024 DomainTools LLC
  * Copyright (c) 2018 by Farsight Security, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -191,6 +192,7 @@ test_json(void)
 	check_return(ftruncate(fd, 0) != -1);
 	o = nmsg_output_open_json(fd);
 	check_return(o != NULL);
+	nmsg_output_set_buffered(o, false);
 
 	nmsg_message_set_source(m, 4321);
 	nmsg_message_set_group(m, 1234);
