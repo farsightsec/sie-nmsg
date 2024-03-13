@@ -36,10 +36,12 @@
 
 #include "wdns.h"
 
-#define NAME "test-parse"
+#define NAME	"test-parse"
 
-#define TEST_JSON_1 "{\"time\":\"2018-02-20 22:01:47.303896708\",\"vname\":\"SIE\",\"mname\":\"dnsdedupe\",\"source\":\"a1ba02cf\",\"message\":{\"type\":\"INSERTION\",\"count\":2,\"time_first\":\"2018-02-20 16:15:04\",\"time_last\":\"2018-02-20 19:04:42\",\"response_ip\":\"194.85.252.62\",\"bailiwick\":\"ru.\",\"rrname\":\"kinozal-chat.ru.\",\"rrclass\":\"IN\",\"rrtype\":\"NS\",\"rrttl\":345600,\"rdata\":[\"cdns1.ihc.ru.\",\"cdns2.ihc.ru.\"]}}"
-#define TEST_JSON_2 "{\"time\":\"2018-02-20 22:02:05.856899023\",\"vname\":\"SIE\",\"mname\":\"newdomain\",\"source\":\"11111111\",\"message\":{\"domain\":\"sabon.fr.\",\"time_seen\":\"2018-02-20 22:00:13\",\"bailiwick\":\"sabon.fr.\",\"rrname\":\"asphalt.sabon.fr.\",\"rrclass\":\"IN\",\"rrtype\":\"MX\",\"rdata\":[\"30 mx.sabon.fr.\"],\"keys\":[],\"new_rr\":[]}}"
+
+#define TEST_JSON_1	"{\"time\":\"2018-02-20 22:01:47.303896708\",\"vname\":\"SIE\",\"mname\":\"dnsdedupe\",\"source\":\"a1ba02cf\",\"message\":{\"type\":\"INSERTION\",\"count\":2,\"time_first\":\"2018-02-20 16:15:04\",\"time_last\":\"2018-02-20 19:04:42\",\"response_ip\":\"194.85.252.62\",\"bailiwick\":\"ru.\",\"rrname\":\"kinozal-chat.ru.\",\"rrclass\":\"IN\",\"rrtype\":\"NS\",\"rrttl\":345600,\"rdata\":[\"cdns1.ihc.ru.\",\"cdns2.ihc.ru.\"]}}"
+#define TEST_JSON_2	"{\"time\":\"2018-02-20 22:02:05.856899023\",\"vname\":\"SIE\",\"mname\":\"newdomain\",\"source\":\"11111111\",\"message\":{\"domain\":\"sabon.fr.\",\"time_seen\":\"2018-02-20 22:00:13\",\"bailiwick\":\"sabon.fr.\",\"rrname\":\"asphalt.sabon.fr.\",\"rrclass\":\"IN\",\"rrtype\":\"MX\",\"rdata\":[\"30 mx.sabon.fr.\"],\"keys\":[],\"new_rr\":[]}}"
+
 
 /* Test decoding of json data with intense validation */
 static int
@@ -185,7 +187,7 @@ test_json(void)
 	/*
 	 * Write the last piece of json data back to ourselves.
 	 * Set some message attributes and make sure they survive.
-	 */
+	  */
 	check_return(lseek(fd, SEEK_SET, 0) == 0);
 	check_return(ftruncate(fd, 0) != -1);
 	o = nmsg_output_open_json(fd);
@@ -267,7 +269,7 @@ test_serialize(void)
 	fd = fileno(f);
 	check_return(fd != -1);
 
-	//	fprintf(stderr, "pres  len = %zu, contents = [%s]\n", strlen(pres), pres);
+//	fprintf(stderr, "pres  len = %zu, contents = [%s]\n", strlen(pres), pres);
 	check_return(write(fd, pres, strlen(pres)) == (int)strlen(pres));
 	check_return(write(fd, "\n", 1) == 1);
 	check_return(lseek(fd, SEEK_SET, 0) != -1);
@@ -279,11 +281,11 @@ test_serialize(void)
 	check_return(i != NULL);
 
 	/* Not sure why this fails ;/ */
-	//	check_return(nmsg_input_read(i, &m3) == nmsg_res_success);
+//	check_return(nmsg_input_read(i, &m3) == nmsg_res_success);
 
 	/* Finally, compare original message with deserialized json and pres. forms */
 	check_return(nmsg_message_get_payload_size(m1) == nmsg_message_get_payload_size(m2));
-	//	check_return(nmsg_message_get_payload_size(m2) == nmsg_message_get_payload_size(m3));
+//	check_return(nmsg_message_get_payload_size(m2) == nmsg_message_get_payload_size(m3));
 
 	/* The data encoded and decoded from json and pres format should all be identical */
 	p1 = nmsg_message_get_payload(m1);
@@ -291,13 +293,13 @@ test_serialize(void)
 	p2 = nmsg_message_get_payload(m2);
 	check_return(p2 != NULL);
 	check(!memcmp(p1, p2, nmsg_message_get_payload_size(m1)));
-	//	p3 = nmsg_message_get_payload(m3);
-	//	check_return(p3 != NULL);
-	//	check(!memcmp(p1, p3, nmsg_message_get_payload_size(m1)));
+//	p3 = nmsg_message_get_payload(m3);
+//	check_return(p3 != NULL);
+//	check(!memcmp(p1, p3, nmsg_message_get_payload_size(m1)));
 
 	nmsg_message_destroy(&m1);
 	nmsg_message_destroy(&m2);
-	//	nmsg_message_destroy(&m3);
+//	nmsg_message_destroy(&m3);
 
 	check(nmsg_input_close(&i) == nmsg_res_success);
 
@@ -306,7 +308,8 @@ test_serialize(void)
 	l_return_test_status();
 }
 
-int main(void)
+int
+main(void)
 {
 	check_abort(nmsg_init() == nmsg_res_success);
 
