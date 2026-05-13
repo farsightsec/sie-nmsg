@@ -24,3 +24,5 @@ tests/test-misc
 tests/test-parse
 tests/*.log
 tests/*.trs
+cscope.out
+tags
