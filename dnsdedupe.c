@@ -480,14 +480,14 @@ dns_rdata_print(nmsg_message_t msg,
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
-	uint16_t *rrtype, *rrclass;
+	uint32_t *rrtype, *rrclass;
 	size_t len;
 
 	res = nmsg_message_get_field(msg, "rrtype", 0, (void**) &rrtype, &len);
 	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
 	}
-	if (len != sizeof(uint16_t)) {
+	if (len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
 	}
 
@@ -495,7 +495,7 @@ dns_rdata_print(nmsg_message_t msg,
 	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
 	}
-	if (len != sizeof(uint16_t)) {
+	if (len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
 	}
 
@@ -520,14 +520,14 @@ dns_rdata_format(nmsg_message_t msg,
 	ProtobufCBinaryData *rdata = ptr;
 	nmsg_res res;
 	char *buf;
-	uint16_t *rrtype, *rrclass;
+	uint32_t *rrtype, *rrclass;
 	size_t len;
 
 	res = nmsg_message_get_field(msg, "rrtype", 0, (void**) &rrtype, &len);
 	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
 	}
-	if (len != sizeof(uint16_t)) {
+	if (len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
 	}
 
@@ -535,7 +535,7 @@ dns_rdata_format(nmsg_message_t msg,
 	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
 	}
-	if (len != sizeof(uint16_t)) {
+	if (len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
 	}
 
@@ -560,14 +560,14 @@ dns_rdata_parse(nmsg_message_t m,
 	(void)endline; /* unused parameter */
 	nmsg_res res;
 	wdns_res w_res;
-	uint16_t *rrtype, *rrclass;
+	uint32_t *rrtype, *rrclass;
 	size_t f_len;
 
 	res = nmsg_message_get_field(m, "rrtype", 0, (void**) &rrtype, &f_len);
 	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
 	}
-	if (f_len != sizeof(uint16_t)) {
+	if (f_len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
 	}
 
@@ -575,7 +575,7 @@ dns_rdata_parse(nmsg_message_t m,
 	if (res != nmsg_res_success) {
 		return (nmsg_res_failure);
 	}
-	if (f_len != sizeof(uint16_t)) {
+	if (f_len != sizeof(uint32_t)) {
 		return (nmsg_res_failure);
 	}
 
