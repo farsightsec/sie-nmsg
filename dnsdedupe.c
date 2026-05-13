@@ -148,7 +148,7 @@ struct nmsg_msgmod_plugin nmsg_msgmod_ctx = {
 	.msgtype	= { NMSG_VENDOR_SIE_DNSDEDUPE_ID, NMSG_VENDOR_SIE_DNSDEDUPE_NAME },
 
 	.pbdescr	= &nmsg__sie__dns_dedupe__descriptor,
-	.fields		= dnsdedupe_fields 
+	.fields		= dnsdedupe_fields
 };
 
 /* Private. */
@@ -166,7 +166,7 @@ time_print(nmsg_message_t msg,
 	struct tm gm;
 
 	t = *((uint32_t *) ptr);
-	
+
 	if (gmtime_r(&t, &gm) != NULL) {
 		res = nmsg_strbuf_append(sb, "%s: %d-%02d-%02d %02d:%02d:%02d%s",
 					 field->name,
@@ -230,6 +230,10 @@ time_parse(nmsg_message_t m,
 	}
 
 	t = malloc(sizeof(*t));
+	if (t == NULL) {
+		return (nmsg_res_memfail);
+	}
+
 	*t = timegm(&gm);
 
 	*ptr = t;
@@ -454,7 +458,6 @@ dns_class_parse(nmsg_message_t m,
 	}
 
 	*rrclass = wdns_str_to_rrclass(value);
-	*rrclass = WDNS_CLASS_IN;
 	if (*rrclass == 0) {
 		free(rrclass);
 		return (nmsg_res_parse_error);
