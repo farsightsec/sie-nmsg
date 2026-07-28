@@ -55,7 +55,7 @@ struct nmsg_msgmod_field dnsdedupe_fields[] = {
 		.name = "type"
 	},
 	{
-		.type = nmsg_msgmod_ft_uint32,
+		.type = nmsg_msgmod_ft_uint64,
 		.name = "count"
 	},
 	{
